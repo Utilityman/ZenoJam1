@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://coy7hvdoh133d"]
+
+[node name="TriggeredHazard" type="Node2D"]

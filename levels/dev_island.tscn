@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqchmq5iw0jrc"]
+
+[ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="1_v3vrd"]
+[ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="2_u7ame"]
+[ext_resource type="PackedScene" uid="uid://tt6b011p62hm" path="res://hazards/spawners/interval_projectile_spawner.tscn" id="3_evpbw"]
+[ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="4_mop83"]
+[ext_resource type="PackedScene" uid="uid://dj3fsumlt34wo" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/PixelPoemArrow.tscn" id="5_fk7cl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyjam"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljbu6"]
+radius = 8.0
+
+[sub_resource type="Resource" id="Resource_a08to"]
+script = ExtResource("4_mop83")
+shape = SubResource("CircleShape2D_ljbu6")
+lifetime = 5.0
+speed = 100.0
+direction = Vector2(0, 1)
+visual_scene = ExtResource("5_fk7cl")
+
+[node name="DevIsland" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_v3vrd")]
+position = Vector2(245, 66)
+speed = 100.0
+has_torch = null
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_u7ame")
+format = 2
+layer_0/name = "BaseGround"
+layer_0/z_index = -5
+layer_0/tile_data = PackedInt32Array(65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 65534, 65536, 1, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 262144, 1, 393214, 0, 0, 458750, 131072, 2, 524286, 0, 0, 65535, 0, 0, 196607, 4, 6, 262143, 0, 1, 327679, 0, 1, 393215, 0, 2, 458751, 196608, 0, 524287, 0, 0, 0, 0, 0, 131072, 327680, 2, 393216, 327680, 2, 458752, 262144, 1, 1, 0, 0, 131073, 262144, 2, 393217, 0, 0, 458753, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 393216, 6, 196610, 0, 1, 262146, 0, 1, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 3, 262144, 3, 65539, 0, 0, 131075, 0, 0, 196611, 65536, 1, 262147, 0, 0, 327683, 0, 0, 393219, 65536, 2, 458755, 262144, 2, 4, 0, 0, 65540, 327680, 3, 131076, 0, 0, 196612, 0, 0, 262148, 131072, 0, 327684, 131072, 1, 393220, 196608, 1, 458756, 0, 0, 131077, 458752, 3, 196613, 0, 0, 262149, 131072, 0, 327685, 131072, 1, 393221, 0, 0, 458757, 0, 2, 327686, 196608, 1, 393222, 0, 0, 458758, 0, 0, 393223, 327680, 1, 458759, 0, 0, 393224, 0, 0, 458760, 0, 0, 327689, 458752, 2, 393225, 0, 0, 458761, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 196608, 0, 262154, 0, 0, 327690, 327680, 3, 393226, 0, 0, 458762, 458752, 2, 5, 0, 0, 65541, 327680, 0, 9, 0, 0, 131081, 131076, 6, 131079, 0, 7, 131080, 65536, 7, 196608, 458753, 5, 262144, 458753, 6, 327680, 458753, 7, 196609, 327681, 1, 262145, 524289, 2, 327681, 524289, 7, 196615, 65537, 1, 262151, 262145, 2, 327687, 262145, 3, 196616, 327681, 1, 262152, 327681, 2, 327688, 327681, 3, 196617, 0, 2, 262153, 0, 2, 196614, 0, 2, 262150, 0, 2, 65545, 131076, 5, 65544, 65540, 5, 65543, 65540, 2, 65542, 4, 5, 131078, 4, 6, 8, 65540, 1, 7, 65540, 0, 6, 65540, 1, 131071, 327684, 4, 65536, 65540, 2, 65537, 131076, 2)
+layer_1/name = "TopGround"
+layer_1/z_index = -5
+layer_1/tile_data = PackedInt32Array(6, 65539, 1, 65542, 65539, 2, 7, 131075, 1, 8, 196611, 1, 65545, 196611, 1, 131081, 196611, 2, 131078, 65539, 2, 131071, 65539, 1, 65537, 196611, 1, 196607, 65539, 2, 131074, 196611, 1, 65536, 131075, 1, 131073, 262147, 4, 65544, 262147, 4, 196617, 196611, 3, 196610, 851971, 3, 262146, 851971, 4, 327682, 393217, 3, 196614, 65539, 3, 262150, 65539, 4, 262153, 196611, 4, 262143, 786435, 3, 327679, 786435, 4)
+layer_2/name = "Accents"
+layer_2/z_index = -5
+layer_2/tile_data = PackedInt32Array(196617, 393217, 1, 262153, 393217, 2, 327689, 393217, 3)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(245, 66)
+
+[node name="IntervalProjectileSpawner" parent="." instance=ExtResource("3_evpbw")]
+position = Vector2(145, 138)
+shape = SubResource("CircleShape2D_xyjam")
+interval = 3.0
+projectile_data = SubResource("Resource_a08to")

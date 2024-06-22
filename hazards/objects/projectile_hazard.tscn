@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bshk8dtimfx3s"]
+
+[ext_resource type="Script" path="res://hazards/objects/projectile_hazard.gd" id="1_xseum"]
+
+[node name="IntervalProjectileSpawner" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xseum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="LifetimeTimer" type="Timer" parent="."]

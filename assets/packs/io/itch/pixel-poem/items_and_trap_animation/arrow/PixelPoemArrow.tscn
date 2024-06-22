@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj3fsumlt34wo"]
+
+[ext_resource type="Texture2D" uid="uid://bgmmdni4suwq6" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/Just_arrow.png" id="1_1xr1b"]
+
+[node name="PixelPoemArrow" type="Sprite2D"]
+texture = ExtResource("1_1xr1b")
