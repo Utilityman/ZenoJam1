@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @export var launch_speed = 200.0 
 @export var gravity = 500.0
 
-@onready var torch: Sprite2D = $Torch
+@onready var torch: Area2D = $Torch
 
 var hit_direction: Vector2
 var torch_velocity: Vector2

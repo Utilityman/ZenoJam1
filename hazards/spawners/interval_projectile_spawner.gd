@@ -12,7 +12,8 @@ class_name IntervalProjectileSpawner extends Node2D
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
-	collision_shape.shape = shape
+	if not collision_shape.shape:
+		collision_shape.shape = shape
 	timer.wait_time = interval
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)

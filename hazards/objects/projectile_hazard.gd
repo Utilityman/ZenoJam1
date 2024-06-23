@@ -11,10 +11,11 @@ class_name ProjectileHazard extends Area2D
 @onready var lifetime_timer: Timer = $LifetimeTimer
 
 func _ready() -> void:
-	collision_shape.shape = shape
+	if not collision_shape.shape:
+		collision_shape.shape = shape
 	lifetime_timer.wait_time = lifetime
 	lifetime_timer.timeout.connect(_on_lifetime_timeout)
-	lifetime_timer.start()
+	lifetime_timer.start() 
 
 	body_entered.connect(_on_body_entered)
 
