@@ -24,7 +24,7 @@ visual_scene = ExtResource("5_fk7cl")
 [node name="Player" parent="." instance=ExtResource("1_v3vrd")]
 position = Vector2(245, 66)
 speed = 100.0
-has_torch = null
+has_torch = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
