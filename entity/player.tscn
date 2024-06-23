@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqk6u3crt4o80"]
+[gd_scene load_steps=11 format=3 uid="uid://bqk6u3crt4o80"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_lfxse"]
 [ext_resource type="Texture2D" uid="uid://chsiqtifpoi2g" path="res://assets/character/satiro-Sheet v1.1.png" id="2_8t140"]
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, -2)]
+"values": [Vector2(-2, -11)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -220,80 +220,13 @@ _data = {
 "walk_right": SubResource("Animation_onh0n")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbv7e"]
-animation = &"idle_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_18cdp"]
-animation = &"idle_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nvvou"]
-animation = &"idle_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e00lv"]
-animation = &"idle_right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_unsrh"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_jbv7e")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_18cdp")
-blend_point_1/pos = Vector2(0, -1.1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_nvvou")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_e00lv")
-blend_point_3/pos = Vector2(1, 0)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0i1a"]
-animation = &"walk_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r67m8"]
-animation = &"walk_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ni11"]
-animation = &"idle_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a55q2"]
-animation = &"idle_left"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_fd224"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_h0i1a")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_r67m8")
-blend_point_1/pos = Vector2(0, -1.1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_1ni11")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_a55q2")
-blend_point_3/pos = Vector2(-1, 0)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_un4hf"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r7n7"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fcpkm"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kx71d"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fgve7"]
-states/Idle/node = SubResource("AnimationNodeBlendSpace2D_unsrh")
-states/Idle/position = Vector2(443, 218)
-states/Walk/node = SubResource("AnimationNodeBlendSpace2D_fd224")
-states/Walk/position = Vector2(706, 218)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_un4hf"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7r7n7"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fcpkm"), "Walk", "End", SubResource("AnimationNodeStateMachineTransition_kx71d")]
-graph_offset = Vector2(111, -74)
-
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_lfxse")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -2)
+position = Vector2(-2, -11)
 texture = ExtResource("2_8t140")
 hframes = 10
 vframes = 8
@@ -310,12 +243,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tmfyi")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_fgve7")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Walk/blend_position = Vector2(0, 0)
-
 [node name="Torch" parent="." instance=ExtResource("3_7r0j3")]
-position = Vector2(10, -1)
+position = Vector2(10, -11)
 rotation = 0.349066

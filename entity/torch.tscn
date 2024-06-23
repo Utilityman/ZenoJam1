@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckqer2mnibtnu"]
+[gd_scene load_steps=17 format=3 uid="uid://ckqer2mnibtnu"]
 
 [ext_resource type="Texture2D" uid="uid://b1ht2ntentu7y" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/torch/torch_1.png" id="1_i1bcl"]
+[ext_resource type="Script" path="res://entity/torch.gd" id="1_kx7wb"]
 
 [sub_resource type="Gradient" id="Gradient_80hgi"]
 colors = PackedColorArray(1, 0, 1, 1, 1, 0, 1, 1)
@@ -9,7 +10,7 @@ colors = PackedColorArray(1, 0, 1, 1, 1, 0, 1, 1)
 gradient = SubResource("Gradient_80hgi")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_atbmm"]
-radius = 5.09902
+radius = 5.0
 
 [sub_resource type="Gradient" id="Gradient_mfa06"]
 offsets = PackedFloat32Array(0, 0.75)
@@ -24,14 +25,64 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
-[node name="Torch" type="Area2D"]
+[sub_resource type="Curve" id="Curve_7ay43"]
+_data = [Vector2(0, 0), 0.0, 0.110765, 0, 0, Vector2(0.50108, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00526309), -2.51069, 0.0, 0, 0]
+point_count = 3
 
-[node name="BackgroundModulate" type="CanvasModulate" parent="."]
+[sub_resource type="CurveTexture" id="CurveTexture_nns1j"]
+curve = SubResource("Curve_7ay43")
+
+[sub_resource type="Curve" id="Curve_mbur2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.526316), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dm3r5"]
+curve = SubResource("Curve_mbur2")
+
+[sub_resource type="Gradient" id="Gradient_dptoa"]
+offsets = PackedFloat32Array(0.112644, 0.657471, 1)
+colors = PackedColorArray(0.713726, 0.133333, 0.0117647, 1, 0.980392, 0.752941, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i3h1m"]
+gradient = SubResource("Gradient_dptoa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efe3e"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_dm3r5")
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+color_initial_ramp = SubResource("GradientTexture1D_i3h1m")
+alpha_curve = SubResource("CurveTexture_nns1j")
+
+[sub_resource type="Gradient" id="Gradient_5hbyf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_307x0"]
+gradient = SubResource("Gradient_5hbyf")
+width = 3
+height = 3
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[node name="Torch" type="Area2D"]
+script = ExtResource("1_kx7wb")
+is_held = null
+has_hit_wall = null
+torch_velocity = null
+
+[node name="LightDebug" type="Node2D" parent="."]
 visible = false
+
+[node name="BackgroundModulate" type="CanvasModulate" parent="LightDebug"]
 color = Color(0.252028, 0.252028, 0.252028, 1)
 
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
+[node name="Background" type="Sprite2D" parent="LightDebug"]
 scale = Vector2(100, 100)
 texture = SubResource("GradientTexture1D_h8uhg")
 
@@ -58,3 +109,10 @@ shadow_filter_smooth = 3.0
 shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_hpifp")
 texture_scale = 2.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -3)
+process_material = SubResource("ParticleProcessMaterial_efe3e")
+texture = SubResource("GradientTexture2D_307x0")
+lifetime = 0.5
+local_coords = true
