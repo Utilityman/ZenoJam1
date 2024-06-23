@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="1_v3vrd"]
 [ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="2_u7ame"]
-[ext_resource type="PackedScene" uid="uid://bg230jfe6ltjk" path="res://hazards/spawners/interval_arrow_spawner.tscn" id="3_25g0f"]
+[ext_resource type="PackedScene" uid="uid://bg230jfe6ltjk" path="res://hazards/spawners/arrow_spawner.tscn" id="3_25g0f"]
 
 [sub_resource type="Environment" id="Environment_ekkq5"]
 background_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bb0njiq340l31"]
 
 [ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="1_hdra2"]
-[ext_resource type="PackedScene" uid="uid://bg230jfe6ltjk" path="res://hazards/spawners/interval_arrow_spawner.tscn" id="1_ovnq0"]
+[ext_resource type="PackedScene" uid="uid://bg230jfe6ltjk" path="res://hazards/spawners/arrow_spawner.tscn" id="1_ovnq0"]
 [ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="2_ocwg1"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="4_gx2jc"]
 [ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="4_qkt2f"]
