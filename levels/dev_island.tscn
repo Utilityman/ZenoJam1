@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqchmq5iw0jrc"]
+[gd_scene load_steps=4 format=3 uid="uid://cqchmq5iw0jrc"]
 
 [ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="1_v3vrd"]
 [ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="2_u7ame"]
-[ext_resource type="PackedScene" uid="uid://bg230jfe6ltjk" path="res://hazards/spawners/arrow_spawner.tscn" id="3_25g0f"]
 
 [sub_resource type="Environment" id="Environment_ekkq5"]
 background_mode = 3
@@ -34,10 +33,6 @@ layer_2/name = "Accents"
 layer_2/z_index = -5
 layer_2/tile_data = PackedInt32Array(196617, 393217, 1, 262153, 393217, 2, 327689, 393217, 3)
 metadata/_edit_lock_ = true
-
-[node name="IntervalArrowSpawner" parent="." instance=ExtResource("3_25g0f")]
-position = Vector2(169, 134)
-collision_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.294118, 0.294118, 0.294118, 1)
