@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_lfxse"]
 [ext_resource type="Texture2D" uid="uid://chsiqtifpoi2g" path="res://assets/character/satiro-Sheet v1.1.png" id="2_8t140"]
-[ext_resource type="Texture2D" uid="uid://b1ht2ntentu7y" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/torch/torch_1.png" id="3_3bktm"]
+[ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="3_7r0j3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhw65"]
 radius = 4.0
@@ -286,13 +286,11 @@ states/Idle/position = Vector2(443, 218)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_fd224")
 states/Walk/position = Vector2(706, 218)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_un4hf"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7r7n7"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fcpkm"), "Walk", "End", SubResource("AnimationNodeStateMachineTransition_kx71d")]
-graph_offset = Vector2(-267, -83)
+graph_offset = Vector2(111, -74)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_lfxse")
-speed = null
-has_torch = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
@@ -318,7 +316,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="Torch" type="Sprite2D" parent="."]
-position = Vector2(9, 5.96046e-07)
-rotation = 0.261799
-texture = ExtResource("3_3bktm")
+[node name="Torch" parent="." instance=ExtResource("3_7r0j3")]
+position = Vector2(10, -1)
+rotation = 0.349066

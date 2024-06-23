@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckqer2mnibtnu"]
+
+[ext_resource type="Texture2D" uid="uid://b1ht2ntentu7y" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/torch/torch_1.png" id="1_i1bcl"]
+
+[sub_resource type="Gradient" id="Gradient_80hgi"]
+colors = PackedColorArray(1, 0, 1, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h8uhg"]
+gradient = SubResource("Gradient_80hgi")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_atbmm"]
+radius = 5.09902
+
+[sub_resource type="Gradient" id="Gradient_mfa06"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 0.545098, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpifp"]
+gradient = SubResource("Gradient_mfa06")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[node name="Torch" type="Area2D"]
+
+[node name="BackgroundModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.252028, 0.252028, 0.252028, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(100, 100)
+texture = SubResource("GradientTexture1D_h8uhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_atbmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i1bcl")
+
+[node name="PrimaryLight" type="PointLight2D" parent="."]
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = SubResource("GradientTexture2D_hpifp")
+texture_scale = 2.0
+
+[node name="SupportLight" type="PointLight2D" parent="."]
+energy = 0.2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_hpifp")
+texture_scale = 2.0

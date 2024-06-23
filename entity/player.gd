@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 @export var speed = 30.0
 @export var has_torch: bool = true
 
-@onready var torch: Sprite2D = $Torch
+@onready var torch: Area2D = $Torch
 
 var hit_direction: Vector2
 
