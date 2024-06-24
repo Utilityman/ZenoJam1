@@ -28,19 +28,7 @@ func hit (node: Node2D):
 
 
 func move():
-	if Input.is_action_pressed("MOVE_RIGHT"):
-		$AnimationPlayer.play("WalkRight")
-		last_direction = "Right"
-	elif Input.is_action_pressed("MOVE_LEFT"):
-		$AnimationPlayer.play("WalkLeft")
-		last_direction = "Left"
-	elif Input.is_action_pressed("MOVE_DOWN"):
-		$AnimationPlayer.play("WalkForward")
-		last_direction = "Down"
-	elif Input.is_action_pressed("MOVE_UP"):
-		$AnimationPlayer.play("WalkUp")
-		last_direction = "Up"
-	elif Input.is_action_pressed("MOVE_RIGHT") and Input.is_action_pressed("MOVE_UP"):
+	if Input.is_action_pressed("MOVE_RIGHT") and Input.is_action_pressed("MOVE_UP"):
 		$AnimationPlayer.play("RunUpRight")
 		last_direction = "UpRight"
 	elif Input.is_action_pressed("MOVE_LEFT") and Input.is_action_pressed("MOVE_UP"):
@@ -52,6 +40,18 @@ func move():
 	elif Input.is_action_pressed("MOVE_LEFT") and Input.is_action_pressed("MOVE_DOWN"):
 		$AnimationPlayer.play("RunDownLeft")
 		last_direction = "DownLeft"
+	elif Input.is_action_pressed("MOVE_RIGHT"):
+		$AnimationPlayer.play("WalkRight")
+		last_direction = "Right"
+	elif Input.is_action_pressed("MOVE_LEFT"):
+		$AnimationPlayer.play("WalkLeft")
+		last_direction = "Left"
+	elif Input.is_action_pressed("MOVE_DOWN"):
+		$AnimationPlayer.play("WalkForward")
+		last_direction = "Down"
+	elif Input.is_action_pressed("MOVE_UP"):
+		$AnimationPlayer.play("WalkUp")
+		last_direction = "Up"
 	else:
 		match last_direction:
 			"Right":
