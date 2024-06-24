@@ -36,13 +36,16 @@ func set_moving (direction: Vector2):
 	# if it's not held, we don't need to do anything - it's already moving
 	if not is_held: return
 	has_hit_wall = false
+
 	is_held = false
 	fly_time = 0.0
 
 	# set the correct global position once it becomes a top level scene
+	print("Current Position:" + str(global_position))
 	var _position = global_position
 	top_level = true
 	global_position = _position
+	print("After Set Moving Position:" + str(global_position))
 
 	# properties that make this move
 	torch_velocity = Vector2(direction)
