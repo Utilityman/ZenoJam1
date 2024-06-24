@@ -17,13 +17,6 @@ func _ready() -> void:
 	lifetime_timer.timeout.connect(_on_lifetime_timeout)
 	lifetime_timer.start() 
 
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered (body: Node2D):
-	if body is Player:
-		body.hit(self)
-		queue_free()
-
 func _on_lifetime_timeout ():
 	queue_free()
 

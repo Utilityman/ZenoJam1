@@ -8,6 +8,7 @@ var projectile_packed: PackedScene = preload("res://hazards/objects/projectile_h
 @export var speed: float = 60.0
 @export var direction: Vector2
 @export var visual_scene: PackedScene
+# @export var visual_scene_direction: Vector2 = Vector2(0, 1) # assuming the scene is down!
 
 # TODO: needs visual information to be able to pass into the hazard
 
@@ -17,6 +18,9 @@ func create_hazard_scene () -> ProjectileHazard:
 	projectile_scene.lifetime = lifetime
 	projectile_scene.direction = direction
 	projectile_scene.speed = speed
+
+	# TODO: rotate the "projectile_scene" by some amount determined by "visual_scene_direction" and "direction"
+
 	var visuals = visual_scene.instantiate()
 	projectile_scene.add_child(visuals)
 

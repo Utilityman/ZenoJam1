@@ -72,9 +72,6 @@ metadata/_snap_count = 2
 
 [node name="Torch" type="Area2D"]
 script = ExtResource("1_kx7wb")
-is_held = null
-has_hit_wall = null
-torch_velocity = null
 
 [node name="LightDebug" type="Node2D" parent="."]
 visible = false
@@ -87,13 +84,15 @@ scale = Vector2(100, 100)
 texture = SubResource("GradientTexture1D_h8uhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_atbmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
 texture = ExtResource("1_i1bcl")
 
 [node name="PrimaryLight" type="PointLight2D" parent="."]
+position = Vector2(0, -7)
 energy = 0.8
 shadow_enabled = true
 shadow_filter = 1
@@ -102,6 +101,7 @@ texture = SubResource("GradientTexture2D_hpifp")
 texture_scale = 2.0
 
 [node name="SupportLight" type="PointLight2D" parent="."]
+position = Vector2(0, -7)
 energy = 0.2
 shadow_enabled = true
 shadow_filter = 1
@@ -111,7 +111,7 @@ texture = SubResource("GradientTexture2D_hpifp")
 texture_scale = 2.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -10)
 process_material = SubResource("ParticleProcessMaterial_efe3e")
 texture = SubResource("GradientTexture2D_307x0")
 lifetime = 0.5
