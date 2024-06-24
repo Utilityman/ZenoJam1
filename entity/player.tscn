@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://bqk6u3crt4o80"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_lfxse"]
-[ext_resource type="Texture2D" uid="uid://c6yvojbge7sf6" path="res://assets/character/Untitled design.png" id="2_tweb7"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="3_7r0j3"]
+[ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="3_ql6u6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhw65"]
 radius = 4.0
@@ -943,7 +943,7 @@ rotation = 0.349066
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("2_tweb7")
+texture = ExtResource("3_ql6u6")
 hframes = 8
 vframes = 8
 
