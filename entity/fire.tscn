@@ -77,5 +77,6 @@ energy = 2.0
 texture = ExtResource("3_1n8pr")
 
 [node name="SpreadTimer" type="Timer" parent="."]
+wait_time = 2.5
 one_shot = true
 autostart = true
