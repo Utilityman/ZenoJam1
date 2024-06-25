@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 @export var speed = 30.0
 @export var launch_speed = 200.0 
 @export var gravity = 500.0
+@export var onTrigger = false;
 var last_direction: String = "IdleDown"
 
 # left_hand_transform is really built for just holding the torch
@@ -90,3 +91,13 @@ func animate():
 			"DownLeft":
 				$AnimationPlayer.play("IdleDownLeft")
 	
+	
+
+func _on_pressure_plate_body_exited(body):
+	print("Im off the pressure plate")
+	onTrigger = false
+
+
+func _on_pressure_plate_body_entered(body):
+	print("im on the pressure plate")
+	onTrigger = true
