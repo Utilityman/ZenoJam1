@@ -15,18 +15,29 @@ var last_direction: String = "IdleDown"
 @onready var left_hand_transform: RemoteTransform2D = $LeftHandTransform
 @onready var hurt_box: Area2D = $HurtBox
 
-
 func _ready() -> void:
 	hurt_box.area_entered.connect(_on_hurt_box_collision)
 
 func _on_hurt_box_collision (area: Area2D):
+
+	# if area is Hazard:
+
+	# do torch things, if we're holding it
 	if torch and torch.is_held:
 		# unset the left_hand transform and set the torch moving 
 		left_hand_transform.remote_path = ""
 		torch.set_moving((self.global_position - area.global_position).normalized())
 
+	# TODO: do other stuff determined by Hazard properties
+
 
 func _physics_process(_delta: float) -> void:
+
+	# utility to send the torch back to the player
+	if Input.is_action_just_pressed("ui_accept"):
+		torch.is_held = true
+		torch = torch
+
 	var input: Vector2 = Input.get_vector(&"MOVE_LEFT", &"MOVE_RIGHT", &"MOVE_UP", &"MOVE_DOWN")
 	velocity = input * speed
 	

@@ -16,11 +16,11 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(node: Node2D):
-	if node.is_in_group("FLAMABLE"):
-		print("Node:" + str(node))
+	if node is LevelMap:
+		var levle_map: LevelMap = node
 		has_hit_wall = true
-		# node.enflame(torch)
-
+		levle_map.fire_contact(self.global_position)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
