@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://duou4pkj0p0v1"]
+
+[ext_resource type="Script" path="res://entity/fire.gd" id="1_p3p2q"]
+[ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_siw5t"]
+[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_1n8pr"]
+
+[sub_resource type="Gradient" id="Gradient_3iw0f"]
+offsets = PackedFloat32Array(0, 0.543011, 1)
+colors = PackedColorArray(0.905882, 0.117647, 0.00784314, 1, 0.980392, 0.47451, 0, 1, 1, 0.843137, 0.160784, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k4k2q"]
+gradient = SubResource("Gradient_3iw0f")
+
+[sub_resource type="Curve" id="Curve_6owt5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6uk1e"]
+curve = SubResource("Curve_6owt5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ryrb6"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_6uk1e")
+color_initial_ramp = SubResource("GradientTexture1D_k4k2q")
+
+[sub_resource type="Gradient" id="Gradient_4r45o"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yg7b1"]
+gradient = SubResource("Gradient_4r45o")
+width = 4
+height = 4
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[node name="Fire" type="Node2D"]
+script = ExtResource("1_p3p2q")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_ryrb6")
+texture = SubResource("GradientTexture2D_yg7b1")
+
+[node name="RedParticles" type="GPUParticles2D" parent="."]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_ryrb6")
+texture = SubResource("GradientTexture2D_yg7b1")
+
+[node name="OrangeParticles" type="GPUParticles2D" parent="."]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_ryrb6")
+texture = SubResource("GradientTexture2D_yg7b1")
+
+[node name="YellowParticles" type="GPUParticles2D" parent="."]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_ryrb6")
+texture = SubResource("GradientTexture2D_yg7b1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(24, -1)
+texture = ExtResource("2_siw5t")
+hframes = 8
+vframes = 8
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.337255, 0, 1)
+energy = 2.0
+texture = ExtResource("3_1n8pr")
+
+[node name="SpreadTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true

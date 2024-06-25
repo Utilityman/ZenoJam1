@@ -21,20 +21,22 @@ func _ready() -> void:
 func _on_hurt_box_collision (area: Area2D):
 
 	# if area is Hazard:
+		# do torch things, if we're holding it
+		if torch and torch.is_held:
+			# unset the left_hand transform and set the torch moving 
+			left_hand_transform.remote_path = ""
+			torch.set_moving((self.global_position - area.global_position).normalized())
 
-	# do torch things, if we're holding it
-	if torch and torch.is_held:
-		# unset the left_hand transform and set the torch moving 
-		left_hand_transform.remote_path = ""
-		torch.set_moving((self.global_position - area.global_position).normalized())
-
-	# TODO: do other stuff determined by Hazard properties
+		# TODO: do other stuff determined by Hazard properties
+		# self.hit_stun(hazard.stun_time)
+		# self.move_direction(hazard.push_direction)
+		# self.move_speed = hazard.move_speed
 
 
 func _physics_process(_delta: float) -> void:
 
 	# utility to send the torch back to the player
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("DEV_RESET"):
 		torch.is_held = true
 		torch = torch
 

@@ -13,14 +13,13 @@ var fly_time: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(node: Node2D):
-	if node is LevelMap:
-		var levle_map: LevelMap = node
+	if not is_held and node is LevelMap:
+		var level_map: LevelMap = node
 		has_hit_wall = true
-		levle_map.fire_contact(self.global_position)
-	
+		level_map.fire_contact_any_one_nearby(self.global_position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -35,20 +34,22 @@ func _physics_process(delta: float) -> void:
 func set_moving (direction: Vector2):
 	# if it's not held, we don't need to do anything - it's already moving
 	if not is_held: return
+	
 	has_hit_wall = false
-
 	is_held = false
 	fly_time = 0.0
 
 	# set the correct global position once it becomes a top level scene
-	print("Current Position:" + str(global_position))
 	var _position = global_position
 	top_level = true
 	global_position = _position
-	print("After Set Moving Position:" + str(global_position))
 
 	# properties that make this move
 	torch_velocity = Vector2(direction)
 	torch_velocity *= 120
 	swing_x_axis = abs(torch_velocity.x) < abs(torch_velocity.y)
 	swing_positivity = (randi() & 2) - 1
+
+
+func _on_area_exited(area:Area2D) -> void:
+	pass # Replace with function body.
