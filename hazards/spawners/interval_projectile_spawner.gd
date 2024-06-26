@@ -1,6 +1,6 @@
 class_name IntervalProjectileSpawner extends Node2D
 
-@export var initial_delay: float = 0.0
+@export var initial_delay: float = 0.5
 @export_range(0.0, 15.0, 0.1, "or_greater") var interval: float = 0.0
 @export var projectile_data: ProjectileHazardData
 
@@ -10,6 +10,8 @@ class_name IntervalProjectileSpawner extends Node2D
 
 func _ready() -> void:
 	if interval > 0:
+		if initial_delay > 0: await get_tree().create_timer(initial_delay).timeout
+		spawn_projectile()
 		timer.wait_time = interval
 		timer.start()
 		timer.timeout.connect(spawn_projectile)

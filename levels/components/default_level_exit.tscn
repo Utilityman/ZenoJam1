@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds7soooxh2cpk"]
+[gd_scene load_steps=8 format=3 uid="uid://ds7soooxh2cpk"]
 
 [ext_resource type="Script" path="res://levels/components/level_exit.gd" id="1_qrwm3"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="2_577ol"]
+[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_gmfcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq288"]
 size = Vector2(16, 16)
@@ -57,6 +58,7 @@ region_enabled = true
 region_rect = Rect2(384, 327, 128, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_yq288")
 
@@ -64,3 +66,8 @@ shape = SubResource("RectangleShape2D_yq288")
 libraries = {
 "": SubResource("AnimationLibrary_145ea")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+energy = 0.75
+texture = ExtResource("3_gmfcx")

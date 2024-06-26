@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_42sor"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_keujj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -16,13 +16,13 @@ script = ExtResource("1_clxcs")
 first_level = ExtResource("2_42sor")
 
 [node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_03ng6")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_keujj")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1

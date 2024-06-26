@@ -1,31 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://duou4pkj0p0v1"]
+[gd_scene load_steps=15 format=3 uid="uid://duou4pkj0p0v1"]
 
-[ext_resource type="Script" path="res://entity/fire.gd" id="1_p3p2q"]
-[ext_resource type="Texture2D" uid="uid://cww680nc7qusd" path="res://assets/textures/mackin/radial-box.4x4.tres" id="2_cj1ih"]
-[ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_siw5t"]
+[ext_resource type="Script" path="res://levels/components/fire.gd" id="1_p5y4s"]
+[ext_resource type="Texture2D" uid="uid://cww680nc7qusd" path="res://assets/textures/mackin/radial-box.4x4.tres" id="2_f1qr0"]
+[ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="2_q063p"]
+[ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="3_1k3m5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ou162"]
-
-[sub_resource type="Shader" id="Shader_v6a5j"]
-code = "shader_type canvas_item;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-	
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7hna"]
+radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qx5jm"]
-shader = SubResource("Shader_v6a5j")
+shader = ExtResource("2_q063p")
 
 [sub_resource type="Gradient" id="Gradient_3iw0f"]
 offsets = PackedFloat32Array(0, 0.543011, 1)
@@ -65,22 +49,25 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7q4j"]
+radius = 1.0
+
 [node name="Fire" type="Area2D"]
 collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_p3p2q")
+collision_mask = 6
+script = ExtResource("1_p5y4s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_ou162")
+[node name="FireGrowthShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a7hna")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_qx5jm")
+position = Vector2(-1, 1)
 amount = 100
-amount_ratio = 0.05
+amount_ratio = 0.005
 process_material = SubResource("ParticleProcessMaterial_ryrb6")
-texture = ExtResource("2_cj1ih")
+texture = ExtResource("2_f1qr0")
 
 [node name="RedParticles" type="GPUParticles2D" parent="."]
 visible = false
@@ -100,10 +87,18 @@ texture = SubResource("GradientTexture2D_yg7b1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(24, -1)
-texture = ExtResource("2_siw5t")
+texture = ExtResource("3_1k3m5")
 hframes = 8
 vframes = 8
 
 [node name="SpreadTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="FireOriginArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="FireOrigin" type="CollisionShape2D" parent="FireOriginArea"]
+shape = SubResource("CircleShape2D_x7q4j")
+debug_color = Color(0.813957, 0.0020188, 0.978797, 0.42)

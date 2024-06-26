@@ -26,6 +26,7 @@ script = ExtResource("3_wfbai")
 environment = ExtResource("4_tp7tx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0.137255, 0.137255, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]

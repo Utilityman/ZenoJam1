@@ -10,7 +10,8 @@
 [node name="JoshIsland" type="Node2D"]
 
 [node name="LevelExit" parent="." instance=ExtResource("1_gtb0v")]
-position = Vector2(14, -357)
+y_sort_enabled = false
+position = Vector2(5, -147)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_ivqoe")

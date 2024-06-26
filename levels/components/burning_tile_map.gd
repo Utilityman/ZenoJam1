@@ -1,19 +1,20 @@
 class_name BurningTileMap extends TileMap
 
 
-var fire_scene: PackedScene = preload("res://entity/fire.tscn")
-var point_light_scene: PackedScene = preload("res://entity/fire_point_light.tscn")
+var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
+var point_light_scene: PackedScene = preload("res://levels/components/fire_point_light.tscn")
 var first_tile: Vector2i
 var burning_tiles: Array[Vector2i] = []
 
 func _input(event: InputEvent) -> void:
 	# temporary code to manually trigger fire
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		fire_contact(get_local_mouse_position())
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 2:
-		var cell: Vector2i = local_to_map(get_local_mouse_position())
-		print("Tile Is: " + str(cell))
-		print("Should start fire here:" + str(should_start_fire_in_cell(cell)))
+	if get_tree().root.get_meta("dev_mode", false):
+		if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
+			fire_contact(get_local_mouse_position())
+		if event is InputEventMouseButton and event.is_pressed() and event.button_index == 2:
+			var cell: Vector2i = local_to_map(get_local_mouse_position())
+			print("Tile Is: " + str(cell))
+			print("Should start fire here:" + str(should_start_fire_in_cell(cell)))
 
 func fire_contact_any_one_nearby (hit_position: Vector2):
 	var map_cell: Vector2i = local_to_map(hit_position)

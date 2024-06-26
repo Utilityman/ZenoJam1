@@ -1,7 +1,7 @@
 class_name LevelMap extends TileMap
 
 
-var fire_scene: PackedScene = preload("res://entity/fire.tscn")
+var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var burning_tiles: Array[Vector2i] = []
 
 func _input(event: InputEvent) -> void:
