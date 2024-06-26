@@ -7,6 +7,8 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_xseum")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="LifetimeTimer" type="Timer" parent="."]
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

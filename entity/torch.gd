@@ -16,12 +16,11 @@ func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(node: Node2D):
-	if not is_held and node is LevelMap:
-		var level_map: LevelMap = node
+	if not is_held and node is BurningTileMap:
+		var level_map: BurningTileMap = node
 		has_hit_wall = true
 		level_map.fire_contact_any_one_nearby(self.global_position)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if not is_held and not has_hit_wall:
 		fly_time += delta

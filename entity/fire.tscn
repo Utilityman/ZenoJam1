@@ -1,8 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://duou4pkj0p0v1"]
+[gd_scene load_steps=14 format=3 uid="uid://duou4pkj0p0v1"]
 
 [ext_resource type="Script" path="res://entity/fire.gd" id="1_p3p2q"]
+[ext_resource type="Texture2D" uid="uid://cww680nc7qusd" path="res://assets/textures/mackin/radial-box.4x4.tres" id="2_cj1ih"]
 [ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_siw5t"]
-[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_1n8pr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ou162"]
+
+[sub_resource type="Shader" id="Shader_v6a5j"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+	
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx5jm"]
+shader = SubResource("Shader_v6a5j")
 
 [sub_resource type="Gradient" id="Gradient_3iw0f"]
 offsets = PackedFloat32Array(0, 0.543011, 1)
@@ -42,12 +65,22 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
-[node name="Fire" type="Node2D"]
+[node name="Fire" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_p3p2q")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ou162")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qx5jm")
+amount = 100
+amount_ratio = 0.05
 process_material = SubResource("ParticleProcessMaterial_ryrb6")
-texture = SubResource("GradientTexture2D_yg7b1")
+texture = ExtResource("2_cj1ih")
 
 [node name="RedParticles" type="GPUParticles2D" parent="."]
 visible = false
@@ -71,12 +104,6 @@ texture = ExtResource("2_siw5t")
 hframes = 8
 vframes = 8
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0.337255, 0, 1)
-energy = 2.0
-texture = ExtResource("3_1n8pr")
-
 [node name="SpreadTimer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 0.5
 one_shot = true
-autostart = true

@@ -1,7 +1,9 @@
-class_name LevelMap extends TileMap
+class_name BurningTileMap extends TileMap
 
 
 var fire_scene: PackedScene = preload("res://entity/fire.tscn")
+var point_light_scene: PackedScene = preload("res://entity/fire_point_light.tscn")
+var first_tile: Vector2i
 var burning_tiles: Array[Vector2i] = []
 
 func _input(event: InputEvent) -> void:
@@ -26,10 +28,7 @@ func fire_contact_any_one_nearby (hit_position: Vector2):
 func fire_contact (hit_position: Vector2):
 	var map_cell: Vector2i = local_to_map(hit_position)
 	if should_start_fire_in_cell(map_cell):
-		print("Start the fire!")
 		start_fire(map_cell)
-	else:
-		print("I dont think so")
 
 func should_start_fire_in_cell (map_cell: Vector2i):
 	var burnable: bool = false
@@ -43,10 +42,24 @@ func should_start_fire_in_cell (map_cell: Vector2i):
 	return burnable and not burning
 
 func start_fire (map_cell: Vector2i):
+	if not first_tile: first_tile = map_cell
+
+	# formula to get every other tile (checkered pattern)
+	var first_tile_oddness: int = (abs(first_tile.x) + abs(first_tile.y)) % 2
+	var map_cell_oddness: int = (abs(map_cell.x) + abs(map_cell.y)) % 2
+	var should_emit_light: bool = first_tile_oddness == map_cell_oddness
+
 	burning_tiles.append(map_cell)
 	var fire: Fire = fire_scene.instantiate()
+
+	# due to PointLight2D constraints we want to limit the amount of tiles which 
+	# actually get point lights - only add the light checkered from the original fire
+	if should_emit_light:
+		var point_light = point_light_scene.instantiate()
+		fire.add_child(point_light)
+
 	fire.position = map_to_local(map_cell)
-	add_child(fire)
+	call_deferred("add_child", fire)
 	fire.spread.connect(fire_spread)
 
 func fire_spread (from_position: Vector2):
@@ -54,5 +67,3 @@ func fire_spread (from_position: Vector2):
 	for cell: Vector2i in adjacent_cells:
 		if should_start_fire_in_cell(cell):
 			start_fire(cell)
-
-

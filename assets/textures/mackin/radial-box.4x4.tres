@@ -1,0 +1,14 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cww680nc7qusd"]
+
+[sub_resource type="Gradient" id="Gradient_4r45o"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
+
+[resource]
+gradient = SubResource("Gradient_4r45o")
+width = 4
+height = 4
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2

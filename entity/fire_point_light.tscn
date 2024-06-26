@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bea0nchh455vn"]
+
+[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="1_x0rd2"]
+[ext_resource type="Script" path="res://entity/fire_point_light.gd" id="2_ush1c"]
+
+[node name="PointLight2D" type="PointLight2D"]
+modulate = Color(0.894922, 0.894922, 0.894922, 1)
+light_mask = 2
+z_index = 100
+color = Color(1, 0.337255, 0, 1)
+energy = 5.05
+blend_mode = 2
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -512
+range_layer_max = 512
+texture = ExtResource("1_x0rd2")
+texture_scale = 0.1
+script = ExtResource("2_ush1c")

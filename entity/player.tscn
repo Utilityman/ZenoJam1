@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqk6u3crt4o80"]
+[gd_scene load_steps=24 format=3 uid="uid://bqk6u3crt4o80"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_lfxse"]
 [ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_uimy4"]
+[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_uaswa"]
 
 [sub_resource type="Animation" id="Animation_ktkh0"]
 resource_name = "IdleDown"
@@ -420,9 +421,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ne674")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 2
 
 [node name="PlayerHurtShape" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_dsq0l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 1, 0.25098)
+texture = ExtResource("3_uaswa")

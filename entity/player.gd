@@ -1,12 +1,13 @@
 class_name Player extends CharacterBody2D
 
+signal reached_goal
 
 @export var torch: Torch:
 	set(new_torch):
 		torch = new_torch
 		if not is_node_ready(): await ready
 		left_hand_transform.remote_path = torch.get_path()
-@export var speed = 30.0
+@export var speed = 100.0
 @export var launch_speed = 200.0 
 @export var gravity = 500.0
 @export var onTrigger = false;
@@ -20,6 +21,9 @@ func _ready() -> void:
 	hurt_box.area_entered.connect(_on_hurt_box_collision)
 
 func _on_hurt_box_collision (area: Area2D):
+		if area is LevelExit:
+			reached_goal.emit()
+			return
 
 	# if area is Hazard:
 		# do torch things, if we're holding it
@@ -41,8 +45,11 @@ func _physics_process(_delta: float) -> void:
 		torch.is_held = true
 		torch = torch
 
+	var player_speed: float = speed
+	if Input.is_action_pressed("WALK_MODIFIER"): player_speed /= 2.0
+
 	var input: Vector2 = Input.get_vector(&"MOVE_LEFT", &"MOVE_RIGHT", &"MOVE_UP", &"MOVE_DOWN")
-	velocity = input * speed
+	velocity = input * player_speed
 	
 	animate()
 	move_and_slide()

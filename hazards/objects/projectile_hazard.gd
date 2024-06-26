@@ -9,6 +9,7 @@ class_name ProjectileHazard extends Area2D
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var lifetime_timer: Timer = $LifetimeTimer
+@onready var visual_holder: Node2D = $Visual
 
 func _ready() -> void:
 	if not collision_shape.shape:
