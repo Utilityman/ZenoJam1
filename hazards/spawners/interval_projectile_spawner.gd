@@ -18,4 +18,4 @@ func _ready() -> void:
 
 func spawn_projectile():
 	var projectile: ProjectileHazard = projectile_data.create_hazard_scene()
-	spawn_origin.add_child(projectile)
+	spawn_origin.call_deferred("add_child", projectile)

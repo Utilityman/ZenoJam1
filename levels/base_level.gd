@@ -13,7 +13,7 @@ var burning_tiles: Array[Vector2i] = []
 
 
 func _ready() -> void:
-	canvas_modulate.visible = true
+	#canvas_modulate.visible = true
 
 	player.reached_goal.connect(_on_player_reached_goal)
 	exit.destroyed.connect(_on_exit_destroyed)

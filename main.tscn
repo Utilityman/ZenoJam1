@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
-[ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_42sor"]
+[ext_resource type="PackedScene" uid="uid://cq10g83d2x6l0" path="res://levels/level_02.tscn" id="2_140qd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_clxcs")
-first_level = ExtResource("2_42sor")
+first_level = ExtResource("2_140qd")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_03ng6")
