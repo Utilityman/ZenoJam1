@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea7wp8lwi8aa"]
+
+[ext_resource type="Script" path="res://hazards/base/retracting_hazard.gd" id="1_n1fmu"]
+[ext_resource type="Script" path="res://hazards/objects/hazard.gd" id="2_03uel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm2fl"]
+
+[node name="RetractingHazard" type="Node2D"]
+script = ExtResource("1_n1fmu")
+
+[node name="Retractor" type="Node2D" parent="."]
+
+[node name="Hazard" type="Area2D" parent="Retractor"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_03uel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Retractor/Hazard"]
+shape = SubResource("CircleShape2D_fm2fl")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

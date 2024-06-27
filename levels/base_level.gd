@@ -4,6 +4,7 @@ var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var burning_tiles: Array[Vector2i] = []
 
 @export var next_level: PackedScene
+@export var modulate_background: bool = true
 
 @onready var tile_map: TileMap = $TileMap
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
@@ -13,7 +14,7 @@ var burning_tiles: Array[Vector2i] = []
 
 
 func _ready() -> void:
-	#canvas_modulate.visible = true
+	if modulate_background: canvas_modulate.visible = true
 
 	player.reached_goal.connect(_on_player_reached_goal)
 	exit.destroyed.connect(_on_exit_destroyed)
@@ -38,7 +39,10 @@ func _on_player_reached_goal ():
 	tween.chain().tween_callback(_switch_level)
 
 func _switch_level ():
-	get_tree().call_deferred("change_scene_to_packed", next_level)
+	if next_level:
+		get_tree().call_deferred("change_scene_to_packed", next_level)
+	else:
+		get_tree().reload_current_scene()
 
 func _on_exit_destroyed ():
 	# get_tree().paused = true

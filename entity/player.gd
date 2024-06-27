@@ -22,11 +22,11 @@ func _ready() -> void:
 	hurt_box.area_entered.connect(_on_hurt_box_collision)
 
 func _on_hurt_box_collision (area: Area2D):
-		if area is LevelExit and area.is_active:
-			reached_goal.emit()
-			return
+	if area is LevelExit and area.is_active:
+		reached_goal.emit()
+		return
 
-	# if area is Hazard:
+	if area is Hazard:
 		# do torch things, if we're holding it
 		if torch and torch.is_held:
 			drop_torch((self.global_position - area.global_position).normalized())

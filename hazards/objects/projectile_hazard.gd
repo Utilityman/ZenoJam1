@@ -1,4 +1,4 @@
-class_name ProjectileHazard extends Area2D
+class_name ProjectileHazard extends Hazard
 
 # TODO: cool animations and stuff on spawn/despawn ?
 

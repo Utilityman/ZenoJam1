@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqchmq5iw0jrc"]
 
-[ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="1_v3vrd"]
-[ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="2_u7ame"]
+[ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="1_2fxar"]
+[ext_resource type="TileSet" uid="uid://clcjepnr68ods" path="res://assets/tilesets/io/itch/cainos/pixel-art-top-down-basic/pixel-art-top-down-basic.tres" id="2_1vy51"]
 
 [sub_resource type="Environment" id="Environment_ekkq5"]
 background_mode = 3
@@ -10,9 +10,8 @@ adjustment_enabled = true
 
 [node name="DevIsland" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_v3vrd")]
+[node name="Player" parent="." instance=ExtResource("1_2fxar")]
 position = Vector2(245, 66)
-speed = 100.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -21,7 +20,7 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(245, 66)
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_u7ame")
+tile_set = ExtResource("2_1vy51")
 format = 2
 layer_0/name = "BaseGround"
 layer_0/z_index = -5

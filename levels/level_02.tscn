@@ -44,5 +44,5 @@ interval = 0.0
 
 [node name="SmallArrowSpawner2" parent="." index="9" instance=ExtResource("3_av3pe")]
 position = Vector2(-41, -27)
-interval = 0.0
 projectile_data = SubResource("Resource_6ife0")
+interval = 0.0

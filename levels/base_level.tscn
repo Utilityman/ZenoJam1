@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ds7soooxh2cpk" path="res://levels/components/default_level_exit.tscn" id="7_j8ju6"]
 
 [node name="BaseLevel" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_w21lq")
 
 [node name="TileMap" type="TileMap" parent="."]

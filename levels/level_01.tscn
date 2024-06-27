@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://580tjwymmfo2"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_hwef7"]
-[ext_resource type="PackedScene" uid="uid://bsjsg5bogo5rl" path="res://levels/level_2.tscn" id="2_06mnj"]
+[ext_resource type="PackedScene" uid="uid://cq10g83d2x6l0" path="res://levels/level_02.tscn" id="2_yiog0"]
 [ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="3_d1xlv"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="4_grp7p"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="4_u54i6"]
@@ -23,7 +23,7 @@ visual_scene_direction = Vector2(0, 1)
 [node name="Level1" instance=ExtResource("1_hwef7")]
 y_sort_enabled = true
 position = Vector2(-0.836975, -0.443939)
-next_level = ExtResource("2_06mnj")
+next_level = ExtResource("2_yiog0")
 
 [node name="TileMap" parent="." index="0"]
 z_index = -1
