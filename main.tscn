@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciua68avdewot"]
+[gd_scene load_steps=7 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_gbvx6"]
 [ext_resource type="PackedScene" uid="uid://4lln0fcaisdw" path="res://levels/wip/popper_maze.tscn" id="3_aa6mt"]
+[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="4_gcgfn"]
+[ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_gcgfn")
 script = ExtResource("1_clxcs")
 first_level = ExtResource("2_gbvx6")
 josh_level = ExtResource("3_aa6mt")
@@ -41,9 +44,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -4
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
 text = "Burnt Out"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="Panel/HBoxContainer"]
 unique_name_in_owner = true
@@ -54,3 +65,8 @@ text = "Play"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Josh Dev Level"
+
+[node name="Torch" parent="." instance=ExtResource("5_tjywn")]
+position = Vector2(569, 366)
+rotation = -0.261799
+scale = Vector2(2, 2)

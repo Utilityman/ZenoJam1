@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccopmiiqe7hlf"]
+[gd_scene load_steps=10 format=3 uid="uid://ccopmiiqe7hlf"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_w21lq"]
 [ext_resource type="TileSet" uid="uid://cy76g4fu4dp12" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/fantasy_dreamland.tres" id="2_t6amd"]
@@ -8,10 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="6_in2lf"]
 [ext_resource type="PackedScene" uid="uid://ds7soooxh2cpk" path="res://levels/components/default_level_exit.tscn" id="7_j8ju6"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="8_dbeyg"]
+[ext_resource type="PackedScene" uid="uid://gmlilr6niymv" path="res://levels/components/level_ui.tscn" id="9_7g46s"]
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_w21lq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+follow_viewport_scale = 1.475
+
+[node name="LevelUI" parent="CanvasLayer" instance=ExtResource("9_7g46s")]
+unique_name_in_owner = true
+light_mask = 131072
 
 [node name="LevelEntrance" type="Sprite2D" parent="."]
 y_sort_enabled = true

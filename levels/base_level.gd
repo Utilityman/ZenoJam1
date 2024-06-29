@@ -14,7 +14,9 @@ var burning_tiles: Array[Vector2i] = []
 @onready var camera_transform: RemoteTransform2D = $Player/CameraTransform
 @onready var player_torch: Torch = $PlayerTorch
 @onready var exit: LevelExit = $LevelExit
+@onready var ui: LevelUI = $%LevelUI
 
+var finished_level: bool = false
 
 func _ready() -> void:
 	if modulate_background: canvas_modulate.visible = true
@@ -28,6 +30,9 @@ func _process(_delta: float) -> void:
 		print("Dev Mode Enabled: " + str(get_tree().root.get_meta("dev_mode")))
 
 func _on_player_reached_goal (): 
+	if finished_level: return true
+	finished_level = true
+
 	player.drop_torch(Vector2(0, 1))
 	player.can_control = false
 	player.play_animation("WalkUp")
@@ -48,6 +53,9 @@ func _switch_level ():
 		get_tree().reload_current_scene()
 
 func _on_exit_destroyed ():
+	if finished_level: return
+	finished_level = true
+
 	player.can_control = false
 	camera_transform.remote_path = ""
 	var tween: Tween = get_tree().create_tween()
@@ -57,4 +65,9 @@ func _on_exit_destroyed ():
 	var final_pos: Vector2 = exit.global_position + Vector2(0, -8)
 	tween.tween_property(camera, "global_position", final_pos, 1.0)
 	tween.tween_property(camera, "zoom", Vector2(5, 5), 0.5)
-	tween.tween_callback(exit.play_close_animation)
+	tween.tween_callback(_on_finished_gate_transition)
+
+func _on_finished_gate_transition ():
+	exit.play_close_animation()
+	ui.show_lost_interface()
+
