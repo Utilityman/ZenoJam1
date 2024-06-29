@@ -58,4 +58,3 @@ shape = SubResource("RectangleShape2D_owegv")
 libraries = {
 "": SubResource("AnimationLibrary_v2tpu")
 }
-speed_scale = 0.47
