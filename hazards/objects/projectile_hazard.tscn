@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard.gd" id="1_xseum"]
 
-[node name="IntervalProjectileSpawner" type="Area2D"]
+[node name="ProjectileHazard" type="Area2D"]
 z_index = 1
 collision_layer = 2
 collision_mask = 2

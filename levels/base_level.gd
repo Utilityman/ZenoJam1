@@ -3,12 +3,15 @@ class_name BaseLevel extends Node2D
 var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var burning_tiles: Array[Vector2i] = []
 
+@export var level_name: String
 @export var next_level: PackedScene
 @export var modulate_background: bool = true
 
 @onready var tile_map: TileMap = $TileMap
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var camera: Camera2D = $Camera2D
 @onready var player: Player = $Player
+@onready var camera_transform: RemoteTransform2D = $Player/CameraTransform
 @onready var player_torch: Torch = $PlayerTorch
 @onready var exit: LevelExit = $LevelExit
 
@@ -45,5 +48,13 @@ func _switch_level ():
 		get_tree().reload_current_scene()
 
 func _on_exit_destroyed ():
-	# get_tree().paused = true
-	pass
+	player.can_control = false
+	camera_transform.remote_path = ""
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+
+	# adds some of the height of the door to center the camera correctly
+	var final_pos: Vector2 = exit.global_position + Vector2(0, -8)
+	tween.tween_property(camera, "global_position", final_pos, 1.0)
+	tween.tween_property(camera, "zoom", Vector2(5, 5), 0.5)
+	tween.tween_callback(exit.play_close_animation)

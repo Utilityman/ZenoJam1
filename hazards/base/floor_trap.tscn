@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw077q0fb1wjd"]
+
+[ext_resource type="Script" path="res://hazards/base/floor_trap.gd" id="1_xvtuq"]
+[ext_resource type="Script" path="res://hazards/objects/hazard.gd" id="2_n02ii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypisj"]
+size = Vector2(16, 16)
+
+[node name="FloorTrap" type="Node2D"]
+script = ExtResource("1_xvtuq")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_n02ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_ypisj")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk87vqba6sqlo"]
+[gd_scene load_steps=7 format=3 uid="uid://b36pwqcprqhkr"]
 
 [ext_resource type="Script" path="res://hazards/swinging_hazard.gd" id="1_5gp6o"]
 [ext_resource type="Texture2D" uid="uid://dvgmkv0ygrb33" path="res://assets/textures/bat_idle_down.png" id="2_ko7mc"]
@@ -51,7 +51,6 @@ texture = ExtResource("2_ko7mc")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwingingPath/Area2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_owegv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SwingingPath/Area2D"]

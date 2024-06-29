@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bqk6u3crt4o80"]
+[gd_scene load_steps=27 format=3 uid="uid://bqk6u3crt4o80"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_lfxse"]
 [ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_uimy4"]
@@ -398,6 +398,28 @@ height = 8.0
 radius = 4.0
 height = 14.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mw2ed"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_hilpo"]
+colors = PackedColorArray(0.303233, 0.303233, 0.303233, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sb4bw"]
+gradient = SubResource("Gradient_hilpo")
+width = 4
+height = 3
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_lfxse")
@@ -428,8 +450,16 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="PlayerHurtShape" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_dsq0l")
+
+[node name="SlowedParticles" type="GPUParticles2D" parent="HurtBox"]
+unique_name_in_owner = true
+visible = false
+process_material = SubResource("ParticleProcessMaterial_mw2ed")
+texture = SubResource("GradientTexture2D_sb4bw")
+local_coords = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 1, 1, 0.25098)

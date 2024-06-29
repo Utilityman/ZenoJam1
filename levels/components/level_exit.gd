@@ -12,5 +12,7 @@ func _ready() -> void:
 func _on_area_entered (area: Area2D):
 	if area is Fire and is_active: 
 		destroyed.emit()
-		animation_player.play("CLOSE")
 		is_active = false
+
+func play_close_animation ():
+	animation_player.play("CLOSE")

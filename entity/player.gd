@@ -15,8 +15,11 @@ signal reached_goal
 var last_direction: String = "IdleDown"
 
 # left_hand_transform is really built for just holding the torch
+@onready var slow_particles: GPUParticles2D = $%SlowedParticles
 @onready var left_hand_transform: RemoteTransform2D = $LeftHandTransform
 @onready var hurt_box: Area2D = $HurtBox
+
+var is_slowed: bool = false
 
 func _ready() -> void:
 	hurt_box.area_entered.connect(_on_hurt_box_collision)
@@ -27,12 +30,15 @@ func _on_hurt_box_collision (area: Area2D):
 		return
 
 	if area is Hazard:
+		var hazard: Hazard = area
 		# do torch things, if we're holding it
 		if torch and torch.is_held:
 			drop_torch((self.global_position - area.global_position).normalized())
 
 		# TODO: do other stuff determined by Hazard properties
-		# self.hit_stun(hazard.stun_time)
+		# TODO: what if stun and slow_move_speed times were instead based on the amount of times you've been hit?
+		hit_stun(hazard.hit_stun_time)
+		slow_move_speed(hazard.slow_movespeed_time)
 		# self.move_direction(hazard.push_direction)
 		# self.move_speed = hazard.move_speed
 
@@ -41,9 +47,27 @@ func drop_torch (direction: Vector2):
 	left_hand_transform.remote_path = ""
 	torch.set_moving(direction)
 
+func hit_stun (time: float):
+	# TODO: play the hit stun animation?
+	can_control = false
+	await get_tree().create_timer(time).timeout
+	can_control = true
+
+func slow_move_speed(time: float):
+	if is_slowed: return
+
+	is_slowed = true
+	var original_speed: float = speed
+	speed = speed / 2.0
+	slow_particles.visible = true
+	await get_tree().create_timer(time).timeout
+	is_slowed = false
+	slow_particles.visible = false
+	speed = original_speed
 
 func _physics_process(_delta: float) -> void:
-
+	if Input.is_action_just_pressed("DROP_TORCH"):
+		drop_torch(Vector2(randf_range(-1, 1), randf_range(-1, 1)))
 	# utility to send the torch back to the player
 	if get_tree().root.get_meta("dev_mode", false) and Input.is_action_just_pressed("DEV_RESET"):
 		torch.is_held = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccopmiiqe7hlf"]
+[gd_scene load_steps=9 format=3 uid="uid://ccopmiiqe7hlf"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_w21lq"]
 [ext_resource type="TileSet" uid="uid://cy76g4fu4dp12" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/fantasy_dreamland.tres" id="2_t6amd"]
@@ -7,10 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="5_unygp"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="6_in2lf"]
 [ext_resource type="PackedScene" uid="uid://ds7soooxh2cpk" path="res://levels/components/default_level_exit.tscn" id="7_j8ju6"]
+[ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="8_dbeyg"]
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_w21lq")
+
+[node name="LevelEntrance" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(42, -12)
+texture = ExtResource("8_dbeyg")
+region_enabled = true
+region_rect = Rect2(481, 328, 30, 24)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -5
@@ -22,6 +30,9 @@ layer_1/name = "Walls"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Decoration"
 layer_2/tile_data = PackedInt32Array()
+layer_3/name = "AboveLayer"
+layer_3/z_index = 10
+layer_3/tile_data = PackedInt32Array()
 script = ExtResource("3_wfbai")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

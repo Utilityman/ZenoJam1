@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt23cawd4e4g8"]
+
+[ext_resource type="PackedScene" uid="uid://dea7wp8lwi8aa" path="res://hazards/base/retracting_hazard.tscn" id="1_3jbv6"]
+[ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="2_edg8s"]
+[ext_resource type="Texture2D" uid="uid://uwy6kd0lqsw3" path="res://assets/textures/org/opengameart/pixel-saw-blade/pixil-frame-0.png" id="3_8b35y"]
+[ext_resource type="Script" path="res://hazards/spinner.gd" id="4_q3032"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew6b3"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mx2ek"]
+radius = 8.0
+
+[node name="SawRetractor" instance=ExtResource("1_3jbv6")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_ew6b3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -8)
+texture = ExtResource("2_edg8s")
+region_enabled = true
+region_rect = Rect2(496, 80, 16, 16)
+
+[node name="Retractor" parent="." index="2"]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" parent="Retractor/Hazard" index="0"]
+shape = SubResource("CircleShape2D_mx2ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="Retractor/Hazard" index="1"]
+z_index = -1
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_8b35y")
+region_enabled = true
+region_rect = Rect2(17, 17, 35, 35)
+script = ExtResource("4_q3032")
