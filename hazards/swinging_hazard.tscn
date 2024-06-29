@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk87vqba6sqlo"]
+[gd_scene load_steps=7 format=3 uid="uid://bk87vqba6sqlo"]
 
 [ext_resource type="Script" path="res://hazards/swinging_hazard.gd" id="1_5gp6o"]
-[ext_resource type="Texture2D" uid="uid://ccy0acivg8jvt" path="res://icon.svg" id="2_6s1xm"]
+[ext_resource type="Texture2D" uid="uid://dvgmkv0ygrb33" path="res://assets/textures/bat_idle_down.png" id="2_ko7mc"]
 
 [sub_resource type="Curve2D" id="Curve2D_u7bnf"]
 _data = {
@@ -10,7 +10,29 @@ _data = {
 point_count = 22
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owegv"]
-size = Vector2(109.837, 116.789)
+size = Vector2(109.837, 105.222)
+
+[sub_resource type="Animation" id="Animation_4q3db"]
+resource_name = "fly"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2tpu"]
+_data = {
+"fly": SubResource("Animation_4q3db")
+}
 
 [node name="SwingingPath" type="Path2D"]
 curve = SubResource("Curve2D_u7bnf")
@@ -23,9 +45,17 @@ rotation = 0.837981
 script = ExtResource("1_5gp6o")
 
 [node name="Sprite2D" type="Sprite2D" parent="SwingingPath/Area2D"]
-texture = ExtResource("2_6s1xm")
+position = Vector2(0.313912, 0.817786)
+scale = Vector2(3, 2.904)
+texture = ExtResource("2_ko7mc")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwingingPath/Area2D"]
-position = Vector2(-2.76119, 2.70434)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_owegv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwingingPath/Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_v2tpu")
+}
+speed_scale = 0.47
