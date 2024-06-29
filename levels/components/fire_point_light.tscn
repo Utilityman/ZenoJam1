@@ -4,11 +4,9 @@
 [ext_resource type="Script" path="res://levels/components/fire_point_light.gd" id="2_pl85m"]
 
 [node name="PointLight2D" type="PointLight2D"]
-modulate = Color(0.894922, 0.894922, 0.894922, 1)
 light_mask = 2
 z_index = 100
 color = Color(1, 0.337255, 0, 1)
-energy = 5.05
 blend_mode = 2
 range_z_min = -4096
 range_z_max = 4096

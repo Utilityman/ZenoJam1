@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdbu51p2t7a86"]
+
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_x4wcf"]
+
+[node name="LifeSoFar" instance=ExtResource("1_x4wcf")]

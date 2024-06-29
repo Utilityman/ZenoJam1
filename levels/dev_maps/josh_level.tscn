@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_5dh0v"]
 [ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="3_356fp"]
-[ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/blade_retractor.tscn" id="3_770xc"]
+[ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/saw_retractor.tscn" id="3_770xc"]
 [ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="4_ben2m"]
 
 [node name="JoshLevel" instance=ExtResource("1_5dh0v")]
