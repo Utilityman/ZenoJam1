@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk87vqba6sqlo"]
+
+[ext_resource type="Script" path="res://hazards/swinging_hazard.gd" id="1_5gp6o"]
+[ext_resource type="Texture2D" uid="uid://ccy0acivg8jvt" path="res://icon.svg" id="2_6s1xm"]
+
+[sub_resource type="Curve2D" id="Curve2D_u7bnf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 36, 41, 0, 0, 0, 0, 46, 105, 0, 0, 0, 0, 62, 140, 0, 0, 0, 0, 87, 167, 0, 0, 0, 0, 121, 189, 0, 0, 0, 0, 146, 203, 0, 0, 0, 0, 174, 214, 0, 0, 0, 0, 205, 222, 0, 0, 0, 0, 243, 222, 0, 0, 0, 0, 268, 219, 0, 0, 0, 0, 322, 219, 0, 0, 0, 0, 351, 218, 0, 0, 0, 0, 406, 212, 0, 0, 0, 0, 436, 197, 0, 0, 0, 0, 476, 178, 0, 0, 0, 0, 507, 152, 0, 0, 0, 0, 523, 132, 0, 0, 0, 0, 537, 109, 0, 0, 0, 0, 549, 72, 0, 0, 0, 0, 564, 43, 0, 0, 0, 0, 569, 5)
+}
+point_count = 22
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owegv"]
+size = Vector2(109.837, 116.789)
+
+[node name="SwingingPath" type="Path2D"]
+curve = SubResource("Curve2D_u7bnf")
+
+[node name="SwingingPath" type="PathFollow2D" parent="."]
+position = Vector2(0, 1)
+rotation = 0.837981
+
+[node name="Area2D" type="Area2D" parent="SwingingPath"]
+script = ExtResource("1_5gp6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="SwingingPath/Area2D"]
+texture = ExtResource("2_6s1xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwingingPath/Area2D"]
+position = Vector2(-2.76119, 2.70434)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_owegv")
