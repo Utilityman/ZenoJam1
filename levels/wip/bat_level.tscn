@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ox7oa5sld1xl"]
+
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_pyobs"]
+[ext_resource type="PackedScene" uid="uid://cocavfoacmtj5" path="res://hazards/bat_hazard.tscn" id="3_5715g"]
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="3_meffy"]
+
+[node name="BaseLevel" instance=ExtResource("1_pyobs")]
+
+[node name="LevelEntrance" parent="." index="1"]
+position = Vector2(-208, -10)
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(-196610, 589824, 0, -131074, 589824, 0, -65538, 589824, 0, -2, 589824, 0, -196609, 589824, 0, -131073, 589824, 0, -65537, 589824, 0, -1, 589824, 0, -262144, 589824, 0, -196608, 589824, 0, -131072, 589824, 0, -65536, 589824, 0, -262143, 589824, 0, -196607, 589824, 0, -131071, 589824, 0, -65535, 589824, 0, -262142, 589824, 0, -196606, 589824, 0, -131070, 589824, 0, -65534, 589824, 0, -262141, 589824, 0, -196605, 589824, 0, -131069, 589824, 0, -65533, 589824, 0, -262140, 589824, 0, -196604, 589824, 0, -131068, 589824, 0, -65532, 589824, 0, -262139, 589824, 0, -196603, 589824, 0, -131067, 589824, 0, -65531, 589824, 0, -196613, 589824, 0, -131077, 589824, 0, -65541, 589824, 0, -5, 589824, 0, -196612, 589824, 0, -131076, 589824, 0, -65540, 589824, 0, -4, 589824, 0, -196611, 589824, 0, -131075, 589824, 0, -65539, 589824, 0, -3, 589824, 0, -327685, 262144, 8, -262149, 262144, 9, -327684, 262144, 8, -262148, 262144, 9, -327683, 262144, 8, -262147, 262144, 9, -327682, 262144, 8, -262146, 262144, 9, -327681, 262144, 8, -262145, 262144, 9, -393216, 262144, 8, -327680, 262144, 9, -393215, 262144, 8, -327679, 262144, 9, -393214, 262144, 8, -327678, 262144, 9, -393213, 262144, 8, -327677, 262144, 9, -393212, 262144, 8, -327676, 262144, 9, -393211, 262144, 8, -327675, 262144, 9, 65531, 262144, 5, 65532, 262144, 5, 65533, 262144, 5, 65534, 262144, 5, 65535, 262144, 5, 0, 262144, 5, 1, 262144, 5, 2, 262144, 5, 3, 262144, 5, 4, 262144, 5, 5, 262144, 5)
+
+[node name="Camera2D" parent="." index="5"]
+position = Vector2(2, -33)
+
+[node name="Player" parent="." index="6" node_paths=PackedStringArray("torch")]
+position = Vector2(2, -33)
+torch = NodePath("../PlayerTorch")
+
+[node name="PlayerTorch" parent="." index="7"]
+position = Vector2(265, -45)
+
+[node name="LevelExit" parent="." index="8"]
+position = Vector2(3, 115)
+
+[node name="PressurePlate" parent="." index="9" node_paths=PackedStringArray("hazards") instance=ExtResource("3_meffy")]
+position = Vector2(40, -32)
+hazards = [NodePath("../BatHazard")]
+
+[node name="BatHazard" parent="." index="10" instance=ExtResource("3_5715g")]
+position = Vector2(-85, -98)
+scale = Vector2(1.00601, 1.00252)
+interval = 3.0

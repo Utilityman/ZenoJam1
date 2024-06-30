@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_gbvx6"]
-[ext_resource type="PackedScene" uid="uid://4lln0fcaisdw" path="res://levels/wip/popper_maze.tscn" id="3_aa6mt"]
-[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="4_gcgfn"]
+[ext_resource type="PackedScene" uid="uid://ox7oa5sld1xl" path="res://levels/wip/bat_level.tscn" id="4_bvxlo"]
+[ext_resource type="Theme" path="res://default_theme.tres" id="4_gcgfn"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
@@ -18,7 +18,7 @@ grow_vertical = 2
 theme = ExtResource("4_gcgfn")
 script = ExtResource("1_clxcs")
 first_level = ExtResource("2_gbvx6")
-josh_level = ExtResource("3_aa6mt")
+josh_level = ExtResource("4_bvxlo")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_03ng6")

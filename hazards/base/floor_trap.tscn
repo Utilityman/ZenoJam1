@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw077q0fb1wjd"]
+[gd_scene load_steps=4 format=3 uid="uid://bm760qocrfyyw"]
 
 [ext_resource type="Script" path="res://hazards/base/floor_trap.gd" id="1_xvtuq"]
 [ext_resource type="Script" path="res://hazards/objects/hazard.gd" id="2_n02ii"]

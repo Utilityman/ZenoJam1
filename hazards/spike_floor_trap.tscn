@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://p0bm8l2pvbuy"]
+[gd_scene load_steps=8 format=3 uid="uid://b4jkcs1tajq2a"]
 
-[ext_resource type="PackedScene" uid="uid://bw077q0fb1wjd" path="res://hazards/base/floor_trap.tscn" id="1_vgcth"]
+[ext_resource type="PackedScene" uid="uid://bm760qocrfyyw" path="res://hazards/base/floor_trap.tscn" id="1_vgcth"]
 [ext_resource type="Script" path="res://hazards/spike_floor_trap.gd" id="2_a28k2"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="2_dus65"]
 

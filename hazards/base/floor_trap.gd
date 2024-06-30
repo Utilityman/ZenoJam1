@@ -20,7 +20,6 @@ func _ready() -> void:
 
 func activate_delay (delay: float):
 	if delay > 0:
-		# something aint quite right here
 		timer.wait_time = delay
 		timer.start()
 
