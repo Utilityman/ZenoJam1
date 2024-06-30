@@ -21,6 +21,7 @@ func _on_play_button_pressed ():
 	SceneTransition.change_scene(first_level)
 
 func _on_josh_button_pressed ():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	SceneTransition.change_scene(josh_level)
 
 func _process(_delta: float) -> void:
