@@ -34,7 +34,7 @@ func set_moving (direction: Vector2):
 	# if it's not held, we don't need to do anything - it's already moving
 	if not is_held: return
 	
-	print("Set that torch moving!")
+	$TorchFlying.play()
 	has_hit_wall = false
 	is_held = false
 	fly_time = 0.0

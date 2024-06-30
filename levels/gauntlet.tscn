@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c6jo7htvrqx2i"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_ihjrk"]
-[ext_resource type="PackedScene" path="res://hazards/saw_retractor.tscn" id="2_sgrxu"]
+[ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/saw_retractor.tscn" id="2_sgrxu"]
 [ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="3_in6s2"]
 [ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="4_i6yp0"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="5_sm5kf"]

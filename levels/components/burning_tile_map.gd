@@ -1,10 +1,13 @@
 class_name BurningTileMap extends TileMap
 
+@export var fire_sound: AudioStream
 
 var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var point_light_scene: PackedScene = preload("res://levels/components/fire_point_light.tscn")
 var first_tile: Vector2i
 var burning_tiles: Array[Vector2i] = []
+
+var fire_audio: AudioStreamPlayer2D
 
 func _input(event: InputEvent) -> void:
 	# temporary code to manually trigger fire
@@ -15,6 +18,10 @@ func _input(event: InputEvent) -> void:
 			var cell: Vector2i = local_to_map(get_local_mouse_position())
 			print("Tile Is: " + str(cell))
 			print("Should start fire here:" + str(should_start_fire_in_cell(cell)))
+
+func _process(delta: float) -> void:
+	if fire_audio:
+		fire_audio.volume_db = min(fire_audio.volume_db + delta * 5.0, -5.0)
 
 func fire_contact_any_one_nearby (hit_position: Vector2):
 	var map_cell: Vector2i = local_to_map(hit_position)
@@ -43,7 +50,15 @@ func should_start_fire_in_cell (map_cell: Vector2i):
 	return burnable and not burning
 
 func start_fire (map_cell: Vector2i):
-	if not first_tile: first_tile = map_cell
+	if not first_tile: 
+		first_tile = map_cell
+		fire_audio = AudioStreamPlayer2D.new()
+		fire_audio.stream = fire_sound
+		fire_audio.autoplay = true
+		fire_audio.volume_db = -25.0
+		add_child(fire_audio)
+	else:
+		first_tile = burning_tiles[0]
 
 	# formula to get every other tile (checkered pattern)
 	var first_tile_oddness: int = (abs(first_tile.x) + abs(first_tile.y)) % 2

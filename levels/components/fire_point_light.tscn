@@ -14,5 +14,5 @@ range_layer_min = -512
 range_layer_max = 512
 shadow_filter = 2
 texture = ExtResource("1_lawob")
-texture_scale = 0.1
+texture_scale = 0.5
 script = ExtResource("2_pl85m")

@@ -1,6 +1,6 @@
 extends PointLight2D
 
-@export var light_growth_rate: float = 0.5
+@export var light_growth_rate: float = 1.0
 
 func _process(delta: float) -> void:
 	texture_scale += delta * light_growth_rate

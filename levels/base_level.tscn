@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccopmiiqe7hlf"]
+[gd_scene load_steps=13 format=3 uid="uid://ccopmiiqe7hlf"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_w21lq"]
 [ext_resource type="TileSet" uid="uid://cy76g4fu4dp12" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/fantasy_dreamland.tres" id="2_t6amd"]
+[ext_resource type="AudioStream" uid="uid://bo6c0net3jgbt" path="res://assets/sfx/me/sfxr/pickupCoin.wav" id="3_jtr60"]
 [ext_resource type="Script" path="res://levels/components/burning_tile_map.gd" id="3_wfbai"]
+[ext_resource type="AudioStream" uid="uid://yf0evxlp1jip" path="res://assets/sfx/me/sfxr/nextRoom.wav" id="4_jl23q"]
 [ext_resource type="Environment" uid="uid://yvg25ntj6my5" path="res://levels/components/default_environment.tres" id="4_tp7tx"]
 [ext_resource type="PackedScene" uid="uid://bqk6u3crt4o80" path="res://entity/player.tscn" id="5_unygp"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="6_in2lf"]
 [ext_resource type="PackedScene" uid="uid://ds7soooxh2cpk" path="res://levels/components/default_level_exit.tscn" id="7_j8ju6"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="8_dbeyg"]
-[ext_resource type="PackedScene" path="res://levels/components/level_ui.tscn" id="9_7g46s"]
+[ext_resource type="AudioStream" uid="uid://no4hks5i34v0" path="res://assets/sfx/com/pixabay/fire-sound-efftect-21991/fire-sound-efftect-21991.mp3" id="8_fjf1w"]
+[ext_resource type="PackedScene" uid="uid://gmlilr6niymv" path="res://levels/components/level_ui.tscn" id="9_7g46s"]
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
@@ -21,6 +24,12 @@ follow_viewport_scale = 1.475
 [node name="LevelUI" parent="CanvasLayer" instance=ExtResource("9_7g46s")]
 unique_name_in_owner = true
 light_mask = 131072
+
+[node name="LevelCompleteSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jtr60")
+
+[node name="RoomTransitionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jl23q")
 
 [node name="LevelEntrance" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -43,6 +52,7 @@ layer_3/name = "AboveLayer"
 layer_3/z_index = 10
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("3_wfbai")
+fire_sound = ExtResource("8_fjf1w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_tp7tx")

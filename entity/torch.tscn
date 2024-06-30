@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckqer2mnibtnu"]
+[gd_scene load_steps=17 format=3 uid="uid://ckqer2mnibtnu"]
 
 [ext_resource type="Texture2D" uid="uid://b1ht2ntentu7y" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/torch/torch_1.png" id="1_i1bcl"]
 [ext_resource type="Script" path="res://entity/torch.gd" id="1_kx7wb"]
 [ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_idrxk"]
+[ext_resource type="AudioStream" uid="uid://dlqw0ivqfv4wm" path="res://assets/sfx/me/sfxr/torch-flying-away.wav" id="4_tvtsp"]
 
 [sub_resource type="Gradient" id="Gradient_80hgi"]
 colors = PackedColorArray(1, 0, 1, 1, 1, 0, 1, 1)
@@ -106,3 +107,6 @@ process_material = SubResource("ParticleProcessMaterial_efe3e")
 texture = SubResource("GradientTexture2D_307x0")
 lifetime = 0.5
 local_coords = true
+
+[node name="TorchFlying" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tvtsp")

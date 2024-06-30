@@ -18,8 +18,16 @@ var last_direction: String = "IdleDown"
 @onready var slow_particles: GPUParticles2D = $%SlowedParticles
 @onready var left_hand_transform: RemoteTransform2D = $LeftHandTransform
 @onready var hurt_box: Area2D = $HurtBox
+@onready var torch_sound: AudioStreamPlayer2D = $TorchSound
+@onready var hit_sound: AudioStreamPlayer2D = $HurtSfx
+@onready var step_sound: AudioStreamPlayer2D = $StepSound
 
 var is_slowed: bool = false
+var is_stunned: bool = false
+
+var stun_multiplier: float = 1.0
+var step_time: float = 0.4
+var time_since_step = 0.0
 
 func _ready() -> void:
 	hurt_box.area_entered.connect(_on_hurt_box_collision)
@@ -30,27 +38,32 @@ func _on_hurt_box_collision (area: Area2D):
 		return
 
 	if area is Hazard:
+		hit_sound.play()
 		var hazard: Hazard = area
 		# do torch things, if we're holding it
 		if torch and torch.is_held:
 			drop_torch((self.global_position - area.global_position).normalized())
 
-		# TODO: do other stuff determined by Hazard properties
-		# TODO: what if stun and slow_move_speed times were instead based on the amount of times you've been hit?
 		hit_stun(hazard.hit_stun_time)
 		slow_move_speed(hazard.slow_movespeed_time)
-		# self.move_direction(hazard.push_direction)
-		# self.move_speed = hazard.move_speed
 
 func drop_torch (direction: Vector2):
+	torch_sound.stop()
 	# unset the left_hand transform and set the torch moving 
 	left_hand_transform.remote_path = ""
 	torch.set_moving(direction)
 
+# TODO: any sort of animations for the stun time?
 func hit_stun (time: float):
-	# TODO: play the hit stun animation?
+	if is_stunned: return
+
+	is_stunned = true
+	# TODO: play a hit stun animation?
 	can_control = false
-	await get_tree().create_timer(time).timeout
+	await get_tree().create_timer(time * stun_multiplier).timeout
+	stun_multiplier += 1.0
+
+	is_stunned = false
 	can_control = true
 
 func slow_move_speed(time: float):
@@ -65,7 +78,7 @@ func slow_move_speed(time: float):
 	slow_particles.visible = false
 	speed = original_speed
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("DROP_TORCH"):
 		drop_torch(Vector2(randf_range(-1, 1), randf_range(-1, 1)))
 	# utility to send the torch back to the player
@@ -79,7 +92,13 @@ func _physics_process(_delta: float) -> void:
 
 		var input: Vector2 = Input.get_vector(&"MOVE_LEFT", &"MOVE_RIGHT", &"MOVE_UP", &"MOVE_DOWN")
 		velocity = input * player_speed
-		
+
+		time_since_step+= delta
+		if velocity:
+			if time_since_step > step_time:
+				step_sound.play()
+				time_since_step = 0.0
+
 		animate()
 		move_and_slide()
 

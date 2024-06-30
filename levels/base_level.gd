@@ -16,11 +16,14 @@ var burning_tiles: Array[Vector2i] = []
 @onready var exit: LevelExit = $LevelExit
 @onready var ui: LevelUI = $%LevelUI
 
+@onready var level_complete_sfx: AudioStreamPlayer2D = $LevelCompleteSFX
+@onready var room_transition_sfx: AudioStreamPlayer2D = $RoomTransitionSFX
+
 var finished_level: bool = false
 
 func _ready() -> void:
 	if modulate_background: canvas_modulate.visible = true
-
+	level_complete_sfx.finished.connect(_on_level_complete_sfx_finished)
 	player.reached_goal.connect(_on_player_reached_goal)
 	exit.destroyed.connect(_on_exit_destroyed)
 
@@ -29,26 +32,32 @@ func _process(_delta: float) -> void:
 		get_tree().root.set_meta("dev_mode", !get_tree().root.get_meta("dev_mode", false))
 		print("Dev Mode Enabled: " + str(get_tree().root.get_meta("dev_mode")))
 
+func _on_level_complete_sfx_finished ():
+	room_transition_sfx.play()
+
 func _on_player_reached_goal (): 
 	if finished_level: return true
 	finished_level = true
 
+	level_complete_sfx.play()
+	room_transition_sfx.play()
 	player.drop_torch(Vector2(0, 1))
 	player.can_control = false
 	player.play_animation("WalkUp")
 	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(player, "modulate", Color.hex(0x0f0f26), 3)
-	tween.tween_property(player, "global_position", exit.global_position, 3)
-
-	# something something screen transition
-	# tween.chain().tween_property(get_viewport().get_texture().get_data()
+	tween.tween_property(player, "modulate", Color.hex(0x0f0f26), 2.0)
+	tween.tween_property(player, "global_position", exit.global_position, 2.0)
 	
-	tween.chain().tween_callback(_switch_level)
+	tween.chain().tween_callback(_level_transition)
+
+func _level_transition ():
+	# tween or something the screen transition
+	_switch_level()
 
 func _switch_level ():
 	if next_level:
-		get_tree().call_deferred("change_scene_to_packed", next_level)
+		SceneTransition.call_deferred("change_scene", next_level)
 	else:
 		get_tree().reload_current_scene()
 

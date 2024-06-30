@@ -18,10 +18,10 @@ func _ready() -> void:
 
 func _on_play_button_pressed ():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_packed(first_level)
+	SceneTransition.change_scene(first_level)
 
 func _on_josh_button_pressed ():
-	get_tree().change_scene_to_packed(josh_level)
+	SceneTransition.change_scene(josh_level)
 
 func _process(_delta: float) -> void:
 	var viewport_center: Vector2 = get_viewport_rect().size / 2.0
