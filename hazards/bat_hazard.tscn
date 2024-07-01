@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cocavfoacmtj5"]
+[gd_scene load_steps=8 format=3 uid="uid://cocavfoacmtj5"]
 
 [ext_resource type="PackedScene" uid="uid://b36pwqcprqhkr" path="res://hazards/base/swinging_hazard.tscn" id="1_8jhja"]
+[ext_resource type="Script" path="res://hazards/bat_hazard.gd" id="2_iofn1"]
 [ext_resource type="Texture2D" uid="uid://dvgmkv0ygrb33" path="res://assets/textures/mackin/bat_idle_down.png" id="2_xqn8m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ddgah"]
@@ -13,8 +14,31 @@ point_count = 16
 radius = 3.99001
 height = 30.4458
 
+[sub_resource type="Animation" id="Animation_g4kgq"]
+resource_name = "fly"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fl0p"]
+_data = {
+"fly": SubResource("Animation_g4kgq")
+}
+
 [node name="BatHazard" instance=ExtResource("1_8jhja")]
 curve = SubResource("Curve2D_ddgah")
+script = ExtResource("2_iofn1")
 
 [node name="SwingingPathFollower" parent="." index="0"]
 rotation = 1.13223
@@ -27,4 +51,9 @@ shape = SubResource("CapsuleShape2D_eyyg4")
 texture = ExtResource("2_xqn8m")
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SwingingPathFollower/Area2D" index="2"]
+[node name="BatAnimator" type="AnimationPlayer" parent="SwingingPathFollower/Area2D" index="2"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3fl0p")
+}
+speed_scale = 0.558
