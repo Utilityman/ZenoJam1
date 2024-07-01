@@ -29,6 +29,98 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MainAnchor" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/MainAnchor"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -4
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+text = "Burnt Out"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoreMenu" type="VBoxContainer" parent="Panel/MainAnchor"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Play"
+
+[node name="JoshLevel" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Josh Dev Level"
+
+[node name="LevelSelect" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Level Select"
+
+[node name="CreditsButton" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Credits"
+
+[node name="LevelSelect" type="VBoxContainer" parent="Panel/MainAnchor"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MainAnchor/LevelSelect"]
+layout_mode = 2
+
+[node name="Level1" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "1
+"
+
+[node name="Level2" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "2
+"
+
+[node name="Level3" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "3
+"
+
+[node name="Level4" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "4"
+
+[node name="Level5" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "5
+"
+
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -46,40 +138,6 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = -4
-theme_override_constants/shadow_offset_y = -4
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 64
-text = "Burnt Out"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlayButton" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Play"
-
-[node name="JoshLevel" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Josh Dev Level"
-
-[node name="LevelSelect" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Level Select"
-
-[node name="CreditsButton" type="Button" parent="Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Credits"
 
 [node name="Torch" parent="." instance=ExtResource("5_tjywn")]
 position = Vector2(569, 366)
