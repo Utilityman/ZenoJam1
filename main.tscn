@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciua68avdewot"]
+[gd_scene load_steps=12 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://dohhqfk7hhrlg" path="res://levels/01_intro_level.tscn" id="3_8vxse"]
@@ -8,10 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
 [ext_resource type="PackedScene" uid="uid://b3c8o6ofirqeu" path="res://levels/03_duck_and_dodge.tscn" id="6_ls0s6"]
 [ext_resource type="PackedScene" uid="uid://dubbghn8j4i8m" path="res://levels/04_intro_to_bouncers.tscn" id="7_igg1t"]
-[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/05_intro_to_spikes.tscn" id="8_8u2sj"]
-[ext_resource type="PackedScene" uid="uid://54n1682n1ebo" path="res://levels/06_life_so_far.tscn" id="9_30wbv"]
-[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/bonus_01_gauntlet.tscn" id="10_uj6tn"]
-[ext_resource type="PackedScene" uid="uid://cv460g6wqxb4m" path="res://levels/08_all_of_this.tscn" id="10_xjeei"]
+[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/05_intro_to_spikes.tscn" id="9_qijk3"]
+[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/bonus_01_gauntlet.tscn" id="10_wr8th"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -89,6 +87,7 @@ text = "Credits"
 
 [node name="LevelMenu" type="VBoxContainer" parent="Panel/MainAnchor"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -142,7 +141,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "5"
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("8_8u2sj")
+level_to_load = ExtResource("9_qijk3")
 
 [node name="Level6To10" type="HBoxContainer" parent="Panel/MainAnchor/LevelMenu"]
 layout_mode = 2
@@ -153,7 +152,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "6"
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("9_30wbv")
 
 [node name="Level7" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -169,7 +167,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "8"
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("10_xjeei")
 
 [node name="Level9" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -177,7 +174,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "9"
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("10_uj6tn")
+level_to_load = ExtResource("10_wr8th")
 
 [node name="Level10" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -197,6 +194,3 @@ text = "Return"
 position = Vector2(569, 366)
 rotation = -0.261799
 scale = Vector2(2, 2)
-is_held = null
-has_hit_wall = null
-torch_velocity = null

@@ -1,24 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnf7jei2rpf1t"]
 
-[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="1_4u4e4"]
+[ext_resource type="PackedScene" uid="uid://bsmvxpgxpfhpa" path="res://hazards/base/trigger_area.tscn" id="1_4u4e4"]
 [ext_resource type="Script" path="res://hazards/pressure_plate.gd" id="1_ngm7r"]
 [ext_resource type="Texture2D" uid="uid://05c8mcqty0p8" path="res://assets/textures/mackin/pressureplates.png" id="2_isv4x"]
 [ext_resource type="AudioStream" uid="uid://bd4c4fncloodx" path="res://assets/sfx/me/sfxr/pressurePlate.wav" id="4_spls0"]
-
-[sub_resource type="Animation" id="Animation_fgwww"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_w7hij"]
 resource_name = "PRESS"
@@ -34,6 +19,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_fgwww"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k7qte"]
