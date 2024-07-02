@@ -16,7 +16,7 @@ var OFFSET: Vector2 = Vector2(0, 8)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	play_button.pressed.connect(_on_play_button_pressed)
 	level_button.pressed.connect(_on_level_select_pressed)
 	level_return.pressed.connect(_on_level_return_pressed)

@@ -10,6 +10,7 @@ shader = ExtResource("1_mk1je")
 script = ExtResource("1_kv2qm")
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_1l0op")
 offset_right = 40.0
 offset_bottom = 23.0

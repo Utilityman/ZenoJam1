@@ -8,6 +8,7 @@ func _ready() -> void:
 	player_exited.connect(_on_player_exited)
 
 func _on_player_entered ():
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("PRESS")
 
 func _on_player_exited ():
