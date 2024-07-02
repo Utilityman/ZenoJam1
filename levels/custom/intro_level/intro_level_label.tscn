@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkc3icnnhabw0"]
+
+[ext_resource type="Script" path="res://levels/custom/intro_level/intro_level_label.gd" id="1_kv2qm"]
+[ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="1_mk1je"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1l0op"]
+shader = ExtResource("1_mk1je")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kv2qm")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_1l0op")
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "... and that's all you needed to know"

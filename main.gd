@@ -6,23 +6,32 @@ class_name Main extends Control
 @onready var torch: Torch = $Torch
 @onready var title_label: Label = $%TitleLabel
 @onready var play_button: Button = $%PlayButton
-@onready var josh_button: Button = $%JoshLevel
+@onready var level_button: Button = $%LevelSelect
+@onready var level_return: Button = $%LevelReturn
+
+@onready var core_menu: Control = $%CoreMenu
+@onready var level_menu: Control = $%LevelMenu
 
 var OFFSET: Vector2 = Vector2(0, 8)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	# Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	play_button.pressed.connect(_on_play_button_pressed)
-	josh_button.pressed.connect(_on_josh_button_pressed)
+	level_button.pressed.connect(_on_level_select_pressed)
+	level_return.pressed.connect(_on_level_return_pressed)
 
 func _on_play_button_pressed ():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	SceneTransition.change_scene(first_level)
 
-func _on_josh_button_pressed ():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	SceneTransition.change_scene(josh_level)
+func _on_level_select_pressed ():
+	core_menu.visible = false
+	level_menu.visible = true
+
+func _on_level_return_pressed ():
+	core_menu.visible = true
+	level_menu.visible = false
 
 func _process(_delta: float) -> void:
 	var viewport_center: Vector2 = get_viewport_rect().size / 2.0

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://levels/components/level_ui.gd" id="2_qgjqb"]
 
 [node name="LevelUI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +14,7 @@ grow_vertical = 2
 theme = ExtResource("1_unx03")
 script = ExtResource("2_qgjqb")
 
-[node name="LostUI" type="Control" parent="."]
+[node name="RootUI" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LostUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RootUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,7 +36,9 @@ offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="LostUI/VBoxContainer"]
+[node name="LostLabel" type="Label" parent="RootUI/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -43,13 +46,30 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "Burnt Out..."
 
-[node name="RetryButton" type="Button" parent="LostUI/VBoxContainer"]
+[node name="PausedLabel" type="Label" parent="RootUI/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="RootUI/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Resume"
+
+[node name="RetryButton" type="Button" parent="RootUI/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Retry
 "
 
-[node name="MainMenuButton" type="Button" parent="LostUI/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="RootUI/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"

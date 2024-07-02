@@ -12,3 +12,5 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="SpawnOrigin" type="Node2D" parent="."]

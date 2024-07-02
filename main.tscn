@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciua68avdewot"]
+[gd_scene load_steps=13 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_gbvx6"]
+[ext_resource type="PackedScene" uid="uid://dohhqfk7hhrlg" path="res://levels/intro_level.tscn" id="3_hedv4"]
 [ext_resource type="PackedScene" uid="uid://ox7oa5sld1xl" path="res://levels/wip/bat_level.tscn" id="4_bvxlo"]
 [ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="4_gcgfn"]
+[ext_resource type="Script" path="res://level_select_button.gd" id="5_esp0x"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
+[ext_resource type="PackedScene" uid="uid://b3c8o6ofirqeu" path="res://levels/duck_and_dodge.tscn" id="7_0mhw6"]
+[ext_resource type="PackedScene" uid="uid://dubbghn8j4i8m" path="res://levels/intro_to_bouncers.tscn" id="8_onclc"]
+[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/intro_to_spikes.tscn" id="9_qijk3"]
+[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/gauntlet.tscn" id="10_wr8th"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -17,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_gcgfn")
 script = ExtResource("1_clxcs")
-first_level = ExtResource("2_gbvx6")
+first_level = ExtResource("3_hedv4")
 josh_level = ExtResource("4_bvxlo")
 
 [node name="Panel" type="Panel" parent="."]
@@ -57,6 +63,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CoreMenu" type="VBoxContainer" parent="Panel/MainAnchor"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="Panel/MainAnchor/CoreMenu"]
@@ -66,14 +73,8 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Play"
 
-[node name="JoshLevel" type="Button" parent="Panel/MainAnchor/CoreMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 14
-text = "Josh Dev Level"
-
 [node name="LevelSelect" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
@@ -85,59 +86,110 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Credits"
 
-[node name="LevelSelect" type="VBoxContainer" parent="Panel/MainAnchor"]
+[node name="LevelMenu" type="VBoxContainer" parent="Panel/MainAnchor"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MainAnchor/LevelSelect"]
+[node name="Label" type="Label" parent="Panel/MainAnchor/LevelMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Levels"
+
+[node name="Level1To5" type="HBoxContainer" parent="Panel/MainAnchor/LevelMenu"]
 layout_mode = 2
 
-[node name="Level1" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+[node name="Level1" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
+custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "1
 "
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("3_hedv4")
 
-[node name="Level2" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+[node name="Level2" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
+custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "2
 "
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("2_gbvx6")
 
-[node name="Level3" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+[node name="Level3" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
+custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "3
 "
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("7_0mhw6")
 
-[node name="Level4" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+[node name="Level4" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
+custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "4"
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("8_onclc")
 
-[node name="Level5" type="Button" parent="Panel/MainAnchor/LevelSelect/HBoxContainer"]
+[node name="Level5" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
+custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "5
-"
+text = "5"
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("9_qijk3")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = -130.5
-offset_right = 165.0
-offset_bottom = 130.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+[node name="Level6To10" type="HBoxContainer" parent="Panel/MainAnchor/LevelMenu"]
+layout_mode = 2
+
+[node name="Level6" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "6"
+script = ExtResource("5_esp0x")
+
+[node name="Level7" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "7
+"
+script = ExtResource("5_esp0x")
+
+[node name="Level8" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "8"
+script = ExtResource("5_esp0x")
+
+[node name="Level9" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "9"
+script = ExtResource("5_esp0x")
+level_to_load = ExtResource("10_wr8th")
+
+[node name="Level10" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "10"
+script = ExtResource("5_esp0x")
+
+[node name="LevelReturn" type="Button" parent="Panel/MainAnchor/LevelMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Return"
 
 [node name="Torch" parent="." instance=ExtResource("5_tjywn")]
 position = Vector2(569, 366)
