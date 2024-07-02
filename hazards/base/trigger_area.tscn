@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd82j2kw2q42k"]
+
+[ext_resource type="Script" path="res://hazards/base/trigger_area.gd" id="1_cupiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kn3u"]
+size = Vector2(16, 12.5)
+
+[node name="TriggerArea" type="Area2D"]
+z_index = -1
+script = ExtResource("1_cupiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_0kn3u")

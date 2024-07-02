@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://05c8mcqty0p8"
-path="res://.godot/imported/pressureplates.png-181d5df95c3aee8d5196d7831a8c23f6.ctex"
+path="res://.godot/imported/pressureplates.png-2f634f74d5338d6289ba0527f1e9efe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/pressureplates.png"
-dest_files=["res://.godot/imported/pressureplates.png-181d5df95c3aee8d5196d7831a8c23f6.ctex"]
+source_file="res://assets/textures/mackin/pressureplates.png"
+dest_files=["res://.godot/imported/pressureplates.png-2f634f74d5338d6289ba0527f1e9efe5.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://levels/custom/intro_level/intro_level.gd" id="2_v8hbo"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="3_18s2j"]
 [ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="3_ue06u"]
-[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="4_cwnet"]
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="5_o5x3v"]
 [ext_resource type="PackedScene" uid="uid://tt6b011p62hm" path="res://hazards/spawners/interval_projectile_spawner.tscn" id="5_wgtk8"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="6_52gxw"]
 [ext_resource type="PackedScene" uid="uid://bkc3icnnhabw0" path="res://levels/custom/intro_level/intro_level_label.tscn" id="7_mcwr4"]
@@ -57,7 +57,7 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 12
 text = "You heard there was great treasure here..."
 
-[node name="PressurePlate" parent="." index="12" node_paths=PackedStringArray("hazards") instance=ExtResource("4_cwnet")]
+[node name="PressurePlate" parent="." index="12" node_paths=PackedStringArray("hazards") instance=ExtResource("5_o5x3v")]
 position = Vector2(-9.46573, -63.577)
 scale = Vector2(2, 1)
 hazards = [NodePath("../IntervalProjectileSpawner")]

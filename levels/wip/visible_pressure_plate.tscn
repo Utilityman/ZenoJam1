@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://40o6xqir53vc"]
-
-[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="1_lyea5"]
-
-[node name="PressurePlate" instance=ExtResource("1_lyea5")]
-
-[node name="Sprite2D" parent="." index="0"]
-visible = true

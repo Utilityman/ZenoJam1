@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cq10g83d2x6l0"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_2ubg4"]
-[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/pressure_plate.tscn" id="2_y2p44"]
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="2_y2p44"]
 [ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="3_av3pe"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="4_5w8ta"]
 [ext_resource type="PackedScene" uid="uid://dj3fsumlt34wo" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/PixelPoemArrow.tscn" id="5_coq0t"]

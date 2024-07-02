@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd82j2kw2q42k"]
+[gd_scene load_steps=7 format=3 uid="uid://bnf7jei2rpf1t"]
 
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="1_4u4e4"]
 [ext_resource type="Script" path="res://hazards/pressure_plate.gd" id="1_ngm7r"]
-[ext_resource type="Texture2D" uid="uid://05c8mcqty0p8" path="res://assets/textures/pressureplates.png" id="2_f0dgo"]
+[ext_resource type="Texture2D" uid="uid://05c8mcqty0p8" path="res://assets/textures/mackin/pressureplates.png" id="2_isv4x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kn3u"]
-size = Vector2(16, 12.5)
-
-[sub_resource type="Animation" id="Animation_2207e"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_fgwww"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -21,9 +19,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7h0jg"]
-resource_name = "pushed"
-length = 0.1
+[sub_resource type="Animation" id="Animation_w7hij"]
+resource_name = "PRESS"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,32 +29,27 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1]
+"values": [0, 1]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcocl"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7qte"]
 _data = {
-"RESET": SubResource("Animation_2207e"),
-"pushed": SubResource("Animation_7h0jg")
+"PRESS": SubResource("Animation_w7hij"),
+"RESET": SubResource("Animation_fgwww")
 }
 
-[node name="PressurePlate" type="Area2D"]
-z_index = -1
+[node name="PressurePlate" instance=ExtResource("1_4u4e4")]
 script = ExtResource("1_ngm7r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 position = Vector2(0, 8)
-texture = ExtResource("2_f0dgo")
+texture = ExtResource("2_isv4x")
 hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("RectangleShape2D_0kn3u")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_wcocl")
+"": SubResource("AnimationLibrary_k7qte")
 }
