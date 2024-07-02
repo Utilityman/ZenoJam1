@@ -22,10 +22,10 @@ var last_direction: String = "IdleDown"
 @onready var hit_sound: AudioStreamPlayer2D = $HurtSfx
 @onready var step_sound: AudioStreamPlayer2D = $StepSound
 
+var movespeed_modifier: float = 1.0
 var is_slowed: bool = false
 var is_stunned: bool = false
 
-var stun_multiplier: float = 1.0
 var step_time: float = 0.4
 var time_since_step = 0.0
 
@@ -44,7 +44,6 @@ func _on_hurt_box_collision (area: Area2D):
 		if torch and torch.is_held:
 			drop_torch((self.global_position - area.global_position).normalized())
 
-		hit_stun(hazard.hit_stun_time)
 		slow_move_speed(hazard.slow_movespeed_time)
 
 func drop_torch (direction: Vector2):
@@ -54,29 +53,19 @@ func drop_torch (direction: Vector2):
 	torch.set_moving(direction)
 
 # TODO: any sort of animations for the stun time?
-func hit_stun (time: float):
+func hit_stun (_time: float):
 	if is_stunned: return
 
 	is_stunned = true
 	# TODO: play a hit stun animation?
 	can_control = false
-	await get_tree().create_timer(time * stun_multiplier).timeout
-	stun_multiplier += 1.0
-
+	await get_tree().create_timer(0.1).timeout
 	is_stunned = false
 	can_control = true
 
-func slow_move_speed(time: float):
-	if is_slowed: return
-
-	is_slowed = true
-	var original_speed: float = speed
-	speed = speed / 2.0
+func slow_move_speed(_time: float):
+	movespeed_modifier = 0.01
 	slow_particles.visible = true
-	await get_tree().create_timer(time).timeout
-	is_slowed = false
-	slow_particles.visible = false
-	speed = original_speed
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("DROP_TORCH"):
@@ -91,16 +80,17 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("WALK_MODIFIER"): player_speed /= 2.0
 
 		var input: Vector2 = Input.get_vector(&"MOVE_LEFT", &"MOVE_RIGHT", &"MOVE_UP", &"MOVE_DOWN")
-		velocity = input * player_speed
+		velocity = input * player_speed * movespeed_modifier
 
 		time_since_step+= delta
 		if velocity:
 			if time_since_step > step_time:
 				step_sound.play()
 				time_since_step = 0.0
-
 		animate()
 		move_and_slide()
+	movespeed_modifier = min(movespeed_modifier + (delta * 0.33), 1.0)
+	if movespeed_modifier == 1.0: slow_particles.visible = false
 
 func animate():
 	if Input.is_action_pressed("MOVE_RIGHT") and Input.is_action_pressed("MOVE_UP"):

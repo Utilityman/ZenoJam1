@@ -7,6 +7,11 @@ class_name TreasureHoard extends BaseLevel
 func _ready() -> void:
 	super._ready()
 	orb_area.body_entered.connect(_on_orb_area_entered)
+	Global.orb_obtained.connect(_on_orb_obtained)
+
+func _on_orb_obtained ():
+	pass
+	# Not the treasure you expected, but the treasure you deserved...
 
 func _on_orb_area_entered (body: Node2D):
 	if body is Player:

@@ -17,15 +17,14 @@ func _ready() -> void:
 	self.body_exited.connect(_on_body_entered)
 	Global.orb_obtained.connect(_on_orb_obtained)
 	if Global.player_has_orb:
-		torch_sprite.modulate = Color.GREEN
-		torch_particles.modulate = Color.GREEN
+		torch_sprite.modulate = Global.orb_modulate
+		torch_particles.modulate = Global.orb_modulate
 
 func _on_orb_obtained ():
-	print("ORB OBTAINED!")
 	var tween: Tween = get_tree().create_tween()
 	tween.parallel()
-	tween.tween_property(torch_sprite, "modulate", Color.GREEN, 1.0)
-	tween.tween_property(torch_particles, "modulate", Color.GREEN, 1.0)
+	tween.tween_property(torch_sprite, "modulate", Global.orb_modulate, 1.0)
+	tween.tween_property(torch_particles, "modulate", Global.orb_modulate, 1.0)
 
 func _on_body_entered(node: Node2D):
 	if not is_held and node is BurningTileMap:

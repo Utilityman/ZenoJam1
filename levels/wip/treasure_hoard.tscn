@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://diycb2cjkjqai"]
+[gd_scene load_steps=6 format=3 uid="uid://diycb2cjkjqai"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_i386u"]
 [ext_resource type="Script" path="res://levels/wip/treasure_hoard.gd" id="2_vyomn"]
 [ext_resource type="PackedScene" uid="uid://cvsh5o06imple" path="res://entity/orb_of_goblin_kind.tscn" id="2_yn1ls"]
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="4_orvb6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62o0u"]
 radius = 48.0
@@ -43,3 +44,7 @@ position = Vector2(-8, 802)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OrbOfGoblinKind/OrbArea" index="0"]
 shape = SubResource("CircleShape2D_62o0u")
+
+[node name="TriggerArea" parent="." index="12" instance=ExtResource("4_orvb6")]
+position = Vector2(-9, 718)
+scale = Vector2(2, 1)
