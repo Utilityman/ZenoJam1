@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://va8aj5ivevlw"]
+
+[ext_resource type="PackedScene" path="res://hazards/base/swinging_hazard.tscn" id="1_ijlri"]
+[ext_resource type="Texture2D" uid="uid://uwy6kd0lqsw3" path="res://assets/textures/org/opengameart/pixel-saw-blade/pixil-frame-0.png" id="2_78y7q"]
+[ext_resource type="Script" path="res://hazards/spinner.gd" id="3_f0s5a"]
+[ext_resource type="AudioStream" uid="uid://fw56nodwcc51" path="res://assets/sfx/me/sfxr/click.wav" id="4_5ytda"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7kj6"]
+radius = 18.0
+
+[node name="SwingingHazard" instance=ExtResource("1_ijlri")]
+
+[node name="SwingingPathFollower" parent="." index="0"]
+rotation = 1.13223
+
+[node name="Sprite2D" type="Sprite2D" parent="SwingingPathFollower/Area2D" index="0"]
+texture = ExtResource("2_78y7q")
+region_enabled = true
+region_rect = Rect2(17, 17, 35, 35)
+script = ExtResource("3_f0s5a")
+
+[node name="CollisionShape2D" parent="SwingingPathFollower/Area2D" index="1"]
+shape = SubResource("CircleShape2D_a7kj6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("4_5ytda")
+volume_db = -30.0
+autoplay = true

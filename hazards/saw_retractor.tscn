@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt23cawd4e4g8"]
+[gd_scene load_steps=8 format=3 uid="uid://dt23cawd4e4g8"]
 
 [ext_resource type="PackedScene" uid="uid://dea7wp8lwi8aa" path="res://hazards/base/retracting_hazard.tscn" id="1_3jbv6"]
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="2_edg8s"]
 [ext_resource type="Texture2D" uid="uid://uwy6kd0lqsw3" path="res://assets/textures/org/opengameart/pixel-saw-blade/pixil-frame-0.png" id="3_8b35y"]
 [ext_resource type="Script" path="res://hazards/spinner.gd" id="4_q3032"]
+[ext_resource type="AudioStream" uid="uid://fw56nodwcc51" path="res://assets/sfx/me/sfxr/click.wav" id="5_kdqjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ew6b3"]
 size = Vector2(16, 16)
@@ -38,3 +39,7 @@ texture = ExtResource("3_8b35y")
 region_enabled = true
 region_rect = Rect2(17, 17, 35, 35)
 script = ExtResource("4_q3032")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("5_kdqjw")
+volume_db = -40.0

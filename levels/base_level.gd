@@ -49,11 +49,7 @@ func _on_player_reached_goal ():
 	tween.tween_property(player, "modulate", Color.hex(0x0f0f26), 2.0)
 	tween.tween_property(player, "global_position", exit.global_position, 2.0)
 	
-	tween.chain().tween_callback(_level_transition)
-
-func _level_transition ():
-	# tween or something the screen transition
-	_switch_level()
+	tween.chain().tween_callback(_switch_level)
 
 func _switch_level ():
 	if next_level:
