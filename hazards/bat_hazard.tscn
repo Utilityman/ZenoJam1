@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cocavfoacmtj5"]
 
-[ext_resource type="PackedScene" uid="uid://b36pwqcprqhkr" path="res://hazards/base/swinging_hazard.tscn" id="1_8jhja"]
+[ext_resource type="PackedScene" path="res://hazards/base/swinging_hazard.tscn" id="1_8jhja"]
 [ext_resource type="Script" path="res://hazards/bat_hazard.gd" id="2_iofn1"]
 [ext_resource type="Texture2D" uid="uid://dvgmkv0ygrb33" path="res://assets/textures/mackin/bat_idle_down.png" id="2_xqn8m"]
 
@@ -41,7 +41,9 @@ curve = SubResource("Curve2D_ddgah")
 script = ExtResource("2_iofn1")
 
 [node name="SwingingPathFollower" parent="." index="0"]
-rotation = 1.13223
+position = Vector2(-35, -91)
+rotation = 0.0
+rotates = false
 
 [node name="CollisionShape2D" parent="SwingingPathFollower/Area2D" index="0"]
 rotation = 1.5708

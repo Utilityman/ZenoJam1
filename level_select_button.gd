@@ -10,6 +10,5 @@ func _ready() -> void:
 
 func _on_button_pressed ():
 	if level_to_load: 
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		SceneTransition.change_scene(level_to_load)
 

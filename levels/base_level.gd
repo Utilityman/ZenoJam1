@@ -3,8 +3,11 @@ class_name BaseLevel extends Node2D
 var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var burning_tiles: Array[Vector2i] = []
 
+var main_menu_scene: PackedScene = load("res://main.tscn")
+
 @export var level_name: String
 @export var next_level: PackedScene
+@export var return_to_main_menu: bool = false
 @export var modulate_background: bool = true
 
 @onready var tile_map: TileMap = $TileMap
@@ -54,6 +57,8 @@ func _on_player_reached_goal ():
 func _switch_level ():
 	if next_level:
 		SceneTransition.call_deferred("change_scene", next_level)
+	elif return_to_main_menu:
+		SceneTransition.call_deferred("change_scene", main_menu_scene)
 	else:
 		get_tree().reload_current_scene()
 

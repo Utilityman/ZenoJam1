@@ -1,30 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv460g6wqxb4m"]
+[gd_scene load_steps=15 format=3 uid="uid://cv460g6wqxb4m"]
 
-[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_dvjtp"]
-[ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="2_phriu"]
-[ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="3_phsl1"]
-[ext_resource type="PackedScene" uid="uid://dj3fsumlt34wo" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/PixelPoemArrow.tscn" id="4_7uy7p"]
-[ext_resource type="PackedScene" uid="uid://va8aj5ivevlw" path="res://hazards/saw_path_hazard.tscn" id="5_hdqdr"]
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_53hyf"]
+[ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="2_a3u6o"]
+[ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="3_t4f4f"]
+[ext_resource type="PackedScene" uid="uid://dj3fsumlt34wo" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/PixelPoemArrow.tscn" id="4_jopbn"]
+[ext_resource type="PackedScene" uid="uid://va8aj5ivevlw" path="res://hazards/saw_path_hazard.tscn" id="5_6ffrn"]
+[ext_resource type="PackedScene" uid="uid://bshk8dtimfx3s" path="res://hazards/objects/projectile_hazard.tscn" id="6_xkxjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6a2d"]
 size = Vector2(4, 10)
 
 [sub_resource type="Resource" id="Resource_2wc10"]
-script = ExtResource("3_phsl1")
+script = ExtResource("3_t4f4f")
 shape = SubResource("RectangleShape2D_p6a2d")
 lifetime = 30.0
 speed = 80.0
 direction = Vector2(0, -1)
-visual_scene = ExtResource("4_7uy7p")
+visual_scene = ExtResource("4_jopbn")
 visual_scene_direction = Vector2(0, 1)
 
 [sub_resource type="Resource" id="Resource_8od4a"]
-script = ExtResource("3_phsl1")
+script = ExtResource("3_t4f4f")
 shape = SubResource("RectangleShape2D_p6a2d")
 lifetime = 30.0
 speed = 80.0
 direction = Vector2(0, -1)
-visual_scene = ExtResource("4_7uy7p")
+visual_scene = ExtResource("4_jopbn")
 visual_scene_direction = Vector2(0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_rw0lp"]
@@ -51,7 +52,11 @@ _data = {
 }
 point_count = 6
 
-[node name="BaseLevel" instance=ExtResource("1_dvjtp")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du1oq"]
+size = Vector2(6, 8)
+
+[node name="BaseLevel" instance=ExtResource("1_53hyf")]
+return_to_main_menu = true
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(-96, -171)
@@ -75,23 +80,23 @@ position = Vector2(104, 209)
 
 [node name="ArrowSpawners" type="Node2D" parent="." index="11"]
 
-[node name="SmallArrowSpawner" parent="ArrowSpawners" index="0" instance=ExtResource("2_phriu")]
+[node name="SmallArrowSpawner" parent="ArrowSpawners" index="0" instance=ExtResource("2_a3u6o")]
 position = Vector2(-24, 288)
 projectile_data = SubResource("Resource_2wc10")
 interval = 3.0
 
-[node name="SmallArrowSpawner2" parent="ArrowSpawners" index="1" instance=ExtResource("2_phriu")]
+[node name="SmallArrowSpawner2" parent="ArrowSpawners" index="1" instance=ExtResource("2_a3u6o")]
 position = Vector2(8, 288)
 projectile_data = SubResource("Resource_2wc10")
 interval = 3.0
 
-[node name="SmallArrowSpawner3" parent="ArrowSpawners" index="2" instance=ExtResource("2_phriu")]
+[node name="SmallArrowSpawner3" parent="ArrowSpawners" index="2" instance=ExtResource("2_a3u6o")]
 position = Vector2(-8, 288)
 projectile_data = SubResource("Resource_8od4a")
 initial_delay = 1.5
 interval = 3.0
 
-[node name="SmallArrowSpawner4" parent="ArrowSpawners" index="3" instance=ExtResource("2_phriu")]
+[node name="SmallArrowSpawner4" parent="ArrowSpawners" index="3" instance=ExtResource("2_a3u6o")]
 position = Vector2(24, 288)
 projectile_data = SubResource("Resource_8od4a")
 initial_delay = 1.5
@@ -102,19 +107,19 @@ position = Vector2(55, 20)
 rotation = 3.14159
 scale = Vector2(0.5, 0.5)
 
-[node name="SwingingHazard" parent="HazardSet1" index="0" instance=ExtResource("5_hdqdr")]
+[node name="SwingingHazard" parent="HazardSet1" index="0" instance=ExtResource("5_6ffrn")]
 position = Vector2(226, 22.0006)
 rotation = -3.14159
 curve = SubResource("Curve2D_rw0lp")
 speed = 90.0
 initial_delay = 0.25
 
-[node name="SwingingHazard2" parent="HazardSet1" index="1" instance=ExtResource("5_hdqdr")]
+[node name="SwingingHazard2" parent="HazardSet1" index="1" instance=ExtResource("5_6ffrn")]
 curve = SubResource("Curve2D_yl6sl")
 speed = 90.0
 initial_delay = 0.25
 
-[node name="SpinningHazard" parent="." index="13" instance=ExtResource("5_hdqdr")]
+[node name="SpinningHazard" parent="." index="13" instance=ExtResource("5_6ffrn")]
 position = Vector2(-18.5217, 72.5919)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_2181q")
@@ -122,7 +127,7 @@ speed = 60.0
 swing_back = false
 initial_delay = 1.0
 
-[node name="SpinningHazard2" parent="." index="14" instance=ExtResource("5_hdqdr")]
+[node name="SpinningHazard2" parent="." index="14" instance=ExtResource("5_6ffrn")]
 position = Vector2(-47.5217, 131.592)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_2181q")
@@ -130,7 +135,7 @@ speed = 60.0
 swing_back = false
 initial_delay = 1.0
 
-[node name="SpinningHazard3" parent="." index="15" instance=ExtResource("5_hdqdr")]
+[node name="SpinningHazard3" parent="." index="15" instance=ExtResource("5_6ffrn")]
 position = Vector2(9.47832, 131.592)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_2181q")
@@ -138,8 +143,24 @@ speed = 60.0
 swing_back = false
 initial_delay = 1.0
 
-[node name="ZigZag" parent="." index="16" instance=ExtResource("5_hdqdr")]
+[node name="ZigZag" parent="." index="16" instance=ExtResource("5_6ffrn")]
 position = Vector2(-56.5217, -74)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_n6yh0")
 initial_delay = 0.5
+
+[node name="ProjectileHazard" parent="." index="17" instance=ExtResource("6_xkxjr")]
+position = Vector2(-8, 55)
+shape = SubResource("RectangleShape2D_du1oq")
+direction = Vector2(0, -1)
+
+[node name="PixelPoemArrow" parent="ProjectileHazard" index="3" instance=ExtResource("4_jopbn")]
+rotation = 3.14159
+
+[node name="ProjectileHazard2" parent="." index="18" instance=ExtResource("6_xkxjr")]
+position = Vector2(24, 55)
+shape = SubResource("RectangleShape2D_du1oq")
+direction = Vector2(0, -1)
+
+[node name="PixelPoemArrow" parent="ProjectileHazard2" index="3" instance=ExtResource("4_jopbn")]
+rotation = 3.14159

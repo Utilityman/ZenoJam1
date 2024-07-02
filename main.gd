@@ -1,13 +1,15 @@
 class_name Main extends Control
 
 @export var first_level: PackedScene
-@export var josh_level: PackedScene
+
+var credits_scene: PackedScene = load("res://credits.tscn")
 
 @onready var torch: Torch = $Torch
 @onready var title_label: Label = $%TitleLabel
 @onready var play_button: Button = $%PlayButton
 @onready var level_button: Button = $%LevelSelect
 @onready var level_return: Button = $%LevelReturn
+@onready var credits_button: Button = $%CreditsButton
 
 @onready var core_menu: Control = $%CoreMenu
 @onready var level_menu: Control = $%LevelMenu
@@ -20,9 +22,12 @@ func _ready() -> void:
 	play_button.pressed.connect(_on_play_button_pressed)
 	level_button.pressed.connect(_on_level_select_pressed)
 	level_return.pressed.connect(_on_level_return_pressed)
+	credits_button.pressed.connect(_on_credits_pressed)
+
+func _on_credits_pressed ():
+	SceneTransition.change_scene(credits_scene)
 
 func _on_play_button_pressed ():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	SceneTransition.change_scene(first_level)
 
 func _on_level_select_pressed ():

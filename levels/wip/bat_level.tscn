@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ox7oa5sld1xl"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_pyobs"]
-[ext_resource type="PackedScene" uid="uid://nwdjyofuwyre" path="res://hazards/bat_hazard.tscn" id="3_5715g"]
+[ext_resource type="PackedScene" uid="uid://cocavfoacmtj5" path="res://hazards/bat_hazard.tscn" id="3_5715g"]
 
 [sub_resource type="Curve2D" id="Curve2D_l87f3"]
 _data = {

@@ -1,31 +1,31 @@
 [gd_scene load_steps=12 format=3 uid="uid://dohhqfk7hhrlg"]
 
-[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_qa788"]
-[ext_resource type="Script" path="res://levels/custom/intro_level/intro_level.gd" id="2_v8hbo"]
-[ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="3_18s2j"]
-[ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="3_ue06u"]
-[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="5_o5x3v"]
-[ext_resource type="PackedScene" uid="uid://tt6b011p62hm" path="res://hazards/spawners/interval_projectile_spawner.tscn" id="5_wgtk8"]
-[ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="6_52gxw"]
-[ext_resource type="PackedScene" uid="uid://bkc3icnnhabw0" path="res://levels/custom/intro_level/intro_level_label.tscn" id="7_mcwr4"]
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_jvhnd"]
+[ext_resource type="Script" path="res://levels/custom/intro_level/intro_level.gd" id="2_6fddj"]
+[ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/02_first_hazard.tscn" id="3_xfu4w"]
+[ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="4_bxfu2"]
+[ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="5_gstcu"]
+[ext_resource type="PackedScene" uid="uid://tt6b011p62hm" path="res://hazards/spawners/interval_projectile_spawner.tscn" id="6_2t27w"]
+[ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="7_cm2nv"]
+[ext_resource type="PackedScene" uid="uid://bkc3icnnhabw0" path="res://levels/custom/intro_level/intro_level_label.tscn" id="8_uv1mp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5hja"]
-shader = ExtResource("3_ue06u")
+shader = ExtResource("4_bxfu2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxl74"]
 
 [sub_resource type="Resource" id="Resource_ed8uv"]
-script = ExtResource("6_52gxw")
+script = ExtResource("7_cm2nv")
 shape = SubResource("CircleShape2D_rxl74")
 lifetime = 20.0
 speed = 80.0
 direction = Vector2(0, 0)
-visual_scene = ExtResource("7_mcwr4")
+visual_scene = ExtResource("8_uv1mp")
 visual_scene_direction = Vector2(-1, 0)
 
-[node name="IntroLevel" instance=ExtResource("1_qa788")]
-script = ExtResource("2_v8hbo")
-next_level = ExtResource("3_18s2j")
+[node name="IntroLevel" instance=ExtResource("1_jvhnd")]
+script = ExtResource("2_6fddj")
+next_level = ExtResource("3_xfu4w")
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(445, -22)
@@ -57,12 +57,12 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 12
 text = "You heard there was great treasure here..."
 
-[node name="PressurePlate" parent="." index="12" node_paths=PackedStringArray("hazards") instance=ExtResource("5_o5x3v")]
+[node name="PressurePlate" parent="." index="12" node_paths=PackedStringArray("hazards") instance=ExtResource("5_gstcu")]
 position = Vector2(-9.46573, -63.577)
 scale = Vector2(2, 1)
 hazards = [NodePath("../IntervalProjectileSpawner")]
 times_can_activate = 1
 
-[node name="IntervalProjectileSpawner" parent="." index="13" instance=ExtResource("5_wgtk8")]
+[node name="IntervalProjectileSpawner" parent="." index="13" instance=ExtResource("6_2t27w")]
 position = Vector2(-148, -151)
 projectile_data = SubResource("Resource_ed8uv")

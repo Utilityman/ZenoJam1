@@ -1,16 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciua68avdewot"]
+[gd_scene load_steps=12 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
-[ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/level_01.tscn" id="2_gbvx6"]
-[ext_resource type="PackedScene" uid="uid://dohhqfk7hhrlg" path="res://levels/intro_level.tscn" id="3_hedv4"]
-[ext_resource type="PackedScene" uid="uid://ox7oa5sld1xl" path="res://levels/wip/bat_level.tscn" id="4_bvxlo"]
+[ext_resource type="PackedScene" uid="uid://dohhqfk7hhrlg" path="res://levels/01_intro_level.tscn" id="3_8vxse"]
 [ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="4_gcgfn"]
+[ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/02_first_hazard.tscn" id="5_bshr8"]
 [ext_resource type="Script" path="res://level_select_button.gd" id="5_esp0x"]
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
-[ext_resource type="PackedScene" uid="uid://b3c8o6ofirqeu" path="res://levels/duck_and_dodge.tscn" id="7_0mhw6"]
-[ext_resource type="PackedScene" uid="uid://dubbghn8j4i8m" path="res://levels/intro_to_bouncers.tscn" id="8_onclc"]
-[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/intro_to_spikes.tscn" id="9_qijk3"]
-[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/gauntlet.tscn" id="10_wr8th"]
+[ext_resource type="PackedScene" uid="uid://b3c8o6ofirqeu" path="res://levels/03_duck_and_dodge.tscn" id="6_ls0s6"]
+[ext_resource type="PackedScene" uid="uid://dubbghn8j4i8m" path="res://levels/04_intro_to_bouncers.tscn" id="7_igg1t"]
+[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/05_intro_to_spikes.tscn" id="9_qijk3"]
+[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/bonus_01_gauntlet.tscn" id="10_wr8th"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -23,8 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_gcgfn")
 script = ExtResource("1_clxcs")
-first_level = ExtResource("3_hedv4")
-josh_level = ExtResource("4_bvxlo")
+first_level = ExtResource("3_8vxse")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_03ng6")
@@ -81,6 +79,7 @@ theme_override_font_sizes/font_size = 14
 text = "Level Select"
 
 [node name="CreditsButton" type="Button" parent="Panel/MainAnchor/CoreMenu"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
@@ -108,7 +107,7 @@ theme_override_font_sizes/font_size = 14
 text = "1
 "
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("3_hedv4")
+level_to_load = ExtResource("3_8vxse")
 
 [node name="Level2" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
 custom_minimum_size = Vector2(18, 0)
@@ -117,7 +116,7 @@ theme_override_font_sizes/font_size = 14
 text = "2
 "
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("2_gbvx6")
+level_to_load = ExtResource("5_bshr8")
 
 [node name="Level3" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
 custom_minimum_size = Vector2(18, 0)
@@ -126,7 +125,7 @@ theme_override_font_sizes/font_size = 14
 text = "3
 "
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("7_0mhw6")
+level_to_load = ExtResource("6_ls0s6")
 
 [node name="Level4" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
 custom_minimum_size = Vector2(18, 0)
@@ -134,7 +133,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "4"
 script = ExtResource("5_esp0x")
-level_to_load = ExtResource("8_onclc")
+level_to_load = ExtResource("7_igg1t")
 
 [node name="Level5" type="Button" parent="Panel/MainAnchor/LevelMenu/Level1To5"]
 custom_minimum_size = Vector2(18, 0)
