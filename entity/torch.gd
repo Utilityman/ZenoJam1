@@ -14,6 +14,7 @@ var fly_time: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
+	self.body_exited.connect(_on_body_entered)
 
 func _on_body_entered(node: Node2D):
 	if not is_held and node is BurningTileMap:

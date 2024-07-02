@@ -83,23 +83,23 @@ position = Vector2(104, 209)
 [node name="SmallArrowSpawner" parent="ArrowSpawners" index="0" instance=ExtResource("2_a3u6o")]
 position = Vector2(-24, 288)
 projectile_data = SubResource("Resource_2wc10")
-interval = 3.0
+interval = 4.0
 
 [node name="SmallArrowSpawner2" parent="ArrowSpawners" index="1" instance=ExtResource("2_a3u6o")]
 position = Vector2(8, 288)
 projectile_data = SubResource("Resource_2wc10")
-interval = 3.0
+interval = 4.0
 
 [node name="SmallArrowSpawner3" parent="ArrowSpawners" index="2" instance=ExtResource("2_a3u6o")]
 position = Vector2(-8, 288)
 projectile_data = SubResource("Resource_8od4a")
-initial_delay = 1.5
-interval = 3.0
+initial_delay = 2.0
+interval = 4.0
 
 [node name="SmallArrowSpawner4" parent="ArrowSpawners" index="3" instance=ExtResource("2_a3u6o")]
 position = Vector2(24, 288)
 projectile_data = SubResource("Resource_8od4a")
-initial_delay = 1.5
+initial_delay = 2.0
 interval = 3.0
 
 [node name="HazardSet1" type="Node2D" parent="." index="12"]

@@ -23,15 +23,25 @@ func _process(delta: float) -> void:
 	if fire_audio:
 		fire_audio.volume_db = min(fire_audio.volume_db + delta * 5.0, -5.0)
 
-func fire_contact_any_one_nearby (hit_position: Vector2):
+func fire_contact_any_one_nearby (hit_position: Vector2) -> bool:
 	var map_cell: Vector2i = local_to_map(hit_position)
 	var cells_to_light: Array[Vector2i] = get_surrounding_cells(map_cell)
 	cells_to_light.append(map_cell)
 	cells_to_light.reverse()
+
 	for cell in cells_to_light:
 		if should_start_fire_in_cell(cell):
 			start_fire(cell)
-			break
+			return true
+
+	# just in case the fire didn't start, try to start it in an another nearby cell
+	for cell in cells_to_light:
+		if fire_contact_any_one_nearby(local_to_map(cell)):
+			start_fire(cell)
+			return true
+
+	return false
+		
 
 func fire_contact (hit_position: Vector2):
 	var map_cell: Vector2i = local_to_map(hit_position)
