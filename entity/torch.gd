@@ -1,11 +1,11 @@
 class_name Torch extends Area2D
 
-# TODO: should the torch follow the player mouse?
-
-
 @export var is_held: bool = true
 @export var has_hit_wall: bool = false
 @export var torch_velocity: Vector2
+
+@onready var torch_sprite: Sprite2D = $Sprite2D
+@onready var torch_particles: GPUParticles2D = $GPUParticles2D
 
 var swing_x_axis: bool
 var swing_positivity: int
@@ -15,6 +15,17 @@ var fly_time: float
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_entered)
+	Global.orb_obtained.connect(_on_orb_obtained)
+	if Global.player_has_orb:
+		torch_sprite.modulate = Color.GREEN
+		torch_particles.modulate = Color.GREEN
+
+func _on_orb_obtained ():
+	print("ORB OBTAINED!")
+	var tween: Tween = get_tree().create_tween()
+	tween.parallel()
+	tween.tween_property(torch_sprite, "modulate", Color.GREEN, 1.0)
+	tween.tween_property(torch_particles, "modulate", Color.GREEN, 1.0)
 
 func _on_body_entered(node: Node2D):
 	if not is_held and node is BurningTileMap:

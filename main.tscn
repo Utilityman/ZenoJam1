@@ -197,3 +197,6 @@ text = "Return"
 position = Vector2(569, 366)
 rotation = -0.261799
 scale = Vector2(2, 2)
+is_held = null
+has_hit_wall = null
+torch_velocity = null

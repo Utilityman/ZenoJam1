@@ -74,6 +74,9 @@ torch = NodePath("../PlayerTorch")
 
 [node name="PlayerTorch" parent="." index="9"]
 position = Vector2(-583, 8)
+is_held = null
+has_hit_wall = null
+torch_velocity = null
 
 [node name="LevelExit" parent="." index="10"]
 position = Vector2(104, 209)

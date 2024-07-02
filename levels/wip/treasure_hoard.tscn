@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://diycb2cjkjqai"]
+[gd_scene load_steps=5 format=3 uid="uid://diycb2cjkjqai"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_i386u"]
+[ext_resource type="Script" path="res://levels/wip/treasure_hoard.gd" id="2_vyomn"]
 [ext_resource type="PackedScene" uid="uid://cvsh5o06imple" path="res://entity/orb_of_goblin_kind.tscn" id="2_yn1ls"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_62o0u"]
+radius = 48.0
+
 [node name="BaseLevel" instance=ExtResource("1_i386u")]
+script = ExtResource("2_vyomn")
+level_name = null
+return_to_main_menu = null
+modulate_background = null
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(-6, -11)
@@ -21,9 +29,17 @@ torch = NodePath("../PlayerTorch")
 
 [node name="PlayerTorch" parent="." index="9"]
 position = Vector2(-24, 19)
+is_held = null
+has_hit_wall = null
+torch_velocity = null
 
 [node name="LevelExit" parent="." index="10"]
 position = Vector2(-222, 7)
 
 [node name="OrbOfGoblinKind" parent="." index="11" instance=ExtResource("2_yn1ls")]
 position = Vector2(-8, 802)
+
+[node name="OrbArea" type="Area2D" parent="OrbOfGoblinKind" index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbOfGoblinKind/OrbArea" index="0"]
+shape = SubResource("CircleShape2D_62o0u")

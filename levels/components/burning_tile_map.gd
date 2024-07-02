@@ -34,12 +34,6 @@ func fire_contact_any_one_nearby (hit_position: Vector2) -> bool:
 			start_fire(cell)
 			return true
 
-	# just in case the fire didn't start, try to start it in an another nearby cell
-	for cell in cells_to_light:
-		if fire_contact_any_one_nearby(local_to_map(cell)):
-			start_fire(cell)
-			return true
-
 	return false
 		
 

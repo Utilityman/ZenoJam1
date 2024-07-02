@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dmdwi1mj3fo2g" path="res://assets/tilesets/io/itch/elvgames/free-dungeon-fantasy-dreamland/FD_Dungeon_Free.png" id="1_kagly"]
 [ext_resource type="Script" path="res://entity/orb_of_goblin_kind.gd" id="1_lp4vb"]
+[ext_resource type="Texture2D" uid="uid://dupebby1e1gi6" path="res://assets/textures/mackin/radial-light.64x64.tres" id="3_4jus6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_725ao"]
 radius = 5.0
@@ -62,14 +63,10 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_n140k"]
-resource_name = "take_orb"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7i557"]
 _data = {
 "RESET": SubResource("Animation_p7e56"),
-"floating": SubResource("Animation_7xuvx"),
-"take_orb": SubResource("Animation_n140k")
+"floating": SubResource("Animation_7xuvx")
 }
 
 [node name="OrbOfGoblinKind" type="StaticBody2D"]
@@ -85,6 +82,11 @@ position = Vector2(0, -7)
 texture = ExtResource("1_kagly")
 region_enabled = true
 region_rect = Rect2(260, 260, 8, 8)
+
+[node name="PointLight2D" type="PointLight2D" parent="Orb"]
+color = Color(0.560784, 1, 0.560784, 1)
+texture = ExtResource("3_4jus6")
+texture_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
