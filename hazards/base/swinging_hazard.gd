@@ -1,6 +1,6 @@
 class_name SwingingHazard extends Trap
 
-@export var speed :float = 150.0
+@export var speed :float = 120.0
 @export var swing_back: bool = true
 @onready var _follow :PathFollow2D = $SwingingPathFollower
 var activated: bool = false

@@ -62,7 +62,7 @@ curve = SubResource("Curve2D_k1tqw")
 interval = 3.0
 
 [node name="BatHazard4" parent="." index="11" instance=ExtResource("3_5715g")]
-position = Vector2(127, -238)
+position = Vector2(123, -224)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_noj0j")
 interval = 3.0
