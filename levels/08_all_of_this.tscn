@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cv460g6wqxb4m"]
+[gd_scene load_steps=16 format=3 uid="uid://cv460g6wqxb4m"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_53hyf"]
+[ext_resource type="PackedScene" uid="uid://nfveef21tjfm" path="res://levels/arrows_and_saws_and_spikes_oh_my.tscn" id="2_5ytyh"]
 [ext_resource type="PackedScene" uid="uid://dasrvwi1pxvoh" path="res://hazards/spawners/arrow_spawner_01.tscn" id="2_a3u6o"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="3_t4f4f"]
 [ext_resource type="PackedScene" uid="uid://dj3fsumlt34wo" path="res://assets/packs/io/itch/pixel-poem/items_and_trap_animation/arrow/PixelPoemArrow.tscn" id="4_jopbn"]
@@ -55,8 +56,8 @@ point_count = 6
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du1oq"]
 size = Vector2(6, 8)
 
-[node name="BaseLevel" groups=["LEVEL"] instance=ExtResource("1_53hyf")]
-return_to_main_menu = true
+[node name="AllOfthis" groups=["LEVEL"] instance=ExtResource("1_53hyf")]
+next_level = ExtResource("2_5ytyh")
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(-96, -171)
