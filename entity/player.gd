@@ -89,6 +89,7 @@ func _physics_process(delta: float) -> void:
 				time_since_step = 0.0
 		animate()
 		move_and_slide()
+
 	movespeed_modifier = min(movespeed_modifier + (delta * 0.33), 1.0)
 	if movespeed_modifier == 1.0: slow_particles.visible = false
 

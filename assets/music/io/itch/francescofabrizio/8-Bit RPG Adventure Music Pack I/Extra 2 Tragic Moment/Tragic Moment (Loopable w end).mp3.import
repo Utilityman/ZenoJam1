@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2m6exqvhrle0"
+path="res://.godot/imported/Tragic Moment (Loopable w end).mp3-b75e0a5525f953bd6d17325d304360f7.mp3str"
+
+[deps]
+
+source_file="res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/Extra 2 Tragic Moment/Tragic Moment (Loopable w end).mp3"
+dest_files=["res://.godot/imported/Tragic Moment (Loopable w end).mp3-b75e0a5525f953bd6d17325d304360f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

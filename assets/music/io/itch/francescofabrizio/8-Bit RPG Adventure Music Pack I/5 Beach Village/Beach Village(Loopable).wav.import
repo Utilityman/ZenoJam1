@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbtwxk5i5l2td"
+path="res://.godot/imported/Beach Village(Loopable).wav-f5b0d4294bec3a3aff8142ebd5de9c23.sample"
+
+[deps]
+
+source_file="res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/5 Beach Village/Beach Village(Loopable).wav"
+dest_files=["res://.godot/imported/Beach Village(Loopable).wav-f5b0d4294bec3a3aff8142ebd5de9c23.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

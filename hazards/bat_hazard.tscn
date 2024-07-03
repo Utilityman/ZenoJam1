@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cocavfoacmtj5"]
 
-[ext_resource type="PackedScene" uid="uid://b36pwqcprqhkr" path="res://hazards/base/swinging_hazard.tscn" id="1_8jhja"]
+[ext_resource type="PackedScene" path="res://hazards/base/swinging_hazard.tscn" id="1_8jhja"]
 [ext_resource type="Script" path="res://hazards/bat_hazard.gd" id="2_iofn1"]
 [ext_resource type="Texture2D" uid="uid://dvgmkv0ygrb33" path="res://assets/textures/mackin/bat_idle_down.png" id="2_xqn8m"]
 
@@ -11,8 +11,8 @@ _data = {
 point_count = 7
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyyg4"]
-radius = 3.99001
-height = 30.4458
+radius = 4.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_g4kgq"]
 resource_name = "fly"

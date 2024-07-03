@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://q8j2sxec47ge"
+path="res://.godot/imported/Bizzare Character (Loopable).wav-b9ddc30f20174610fca14c4485d12608.sample"
+
+[deps]
+
+source_file="res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/Extra 1 Bizzarre Character/Bizzare Character (Loopable).wav"
+dest_files=["res://.godot/imported/Bizzare Character (Loopable).wav-b9ddc30f20174610fca14c4485d12608.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

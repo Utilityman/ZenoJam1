@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2740xiedqwq4"
+path="res://.godot/imported/Snowy Village (w end).mp3-f66310385c55f5cf190fec862356a8c8.mp3str"
+
+[deps]
+
+source_file="res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/6 Snowy Village/Snowy Village (w end).mp3"
+dest_files=["res://.godot/imported/Snowy Village (w end).mp3-f66310385c55f5cf190fec862356a8c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -55,7 +55,7 @@ point_count = 6
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_du1oq"]
 size = Vector2(6, 8)
 
-[node name="BaseLevel" instance=ExtResource("1_53hyf")]
+[node name="BaseLevel" groups=["LEVEL"] instance=ExtResource("1_53hyf")]
 return_to_main_menu = true
 
 [node name="LevelEntrance" parent="." index="3"]
@@ -74,9 +74,6 @@ torch = NodePath("../PlayerTorch")
 
 [node name="PlayerTorch" parent="." index="9"]
 position = Vector2(-583, 8)
-is_held = null
-has_hit_wall = null
-torch_velocity = null
 
 [node name="LevelExit" parent="." index="10"]
 position = Vector2(104, 209)
@@ -103,7 +100,7 @@ interval = 4.0
 position = Vector2(24, 288)
 projectile_data = SubResource("Resource_8od4a")
 initial_delay = 2.0
-interval = 3.0
+interval = 4.0
 
 [node name="HazardSet1" type="Node2D" parent="." index="12"]
 position = Vector2(55, 20)

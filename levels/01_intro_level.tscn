@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dohhqfk7hhrlg"]
+[gd_scene load_steps=13 format=3 uid="uid://dohhqfk7hhrlg"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_jvhnd"]
 [ext_resource type="Script" path="res://levels/custom/intro_level/intro_level.gd" id="2_6fddj"]
 [ext_resource type="PackedScene" uid="uid://580tjwymmfo2" path="res://levels/02_first_hazard.tscn" id="3_xfu4w"]
 [ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="4_bxfu2"]
+[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="5_3k8w2"]
 [ext_resource type="PackedScene" uid="uid://cd82j2kw2q42k" path="res://hazards/base/trigger_area.tscn" id="5_gstcu"]
 [ext_resource type="PackedScene" uid="uid://tt6b011p62hm" path="res://hazards/spawners/interval_projectile_spawner.tscn" id="6_2t27w"]
 [ext_resource type="Script" path="res://hazards/objects/projectile_hazard_data.gd" id="7_cm2nv"]
@@ -54,6 +55,7 @@ offset_top = 57.0
 offset_right = 119.0
 offset_bottom = 74.0
 size_flags_horizontal = 0
+theme = ExtResource("5_3k8w2")
 theme_override_font_sizes/font_size = 12
 text = "You heard there was great treasure here..."
 

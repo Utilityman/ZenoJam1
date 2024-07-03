@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkc3icnnhabw0"]
+[gd_scene load_steps=5 format=3 uid="uid://bkc3icnnhabw0"]
 
 [ext_resource type="Script" path="res://levels/custom/intro_level/intro_level_label.gd" id="1_kv2qm"]
 [ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="1_mk1je"]
+[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="3_mkgru"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1l0op"]
 shader = ExtResource("1_mk1je")
@@ -15,4 +16,6 @@ material = SubResource("ShaderMaterial_1l0op")
 offset_right = 40.0
 offset_bottom = 23.0
 size_flags_horizontal = 4
+theme = ExtResource("3_mkgru")
+theme_override_font_sizes/font_size = 14
 text = "... and that's all you needed to know"

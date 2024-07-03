@@ -26,3 +26,4 @@ shape = SubResource("CircleShape2D_a7kj6")
 stream = ExtResource("4_5ytda")
 volume_db = -30.0
 autoplay = true
+max_distance = 160.0

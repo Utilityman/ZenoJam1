@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgrwmr43l6cs4"]
+
+[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="1_w21dd"]
+[ext_resource type="Script" path="res://final_screen.gd" id="2_j0tih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgook"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="FinalScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w21dd")
+script = ExtResource("2_j0tih")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fgook")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -15.0
+offset_right = 116.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Not the treasure I expected..."
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "... but the one I needed all along."

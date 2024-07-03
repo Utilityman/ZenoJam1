@@ -59,7 +59,7 @@ environment = ExtResource("4_tp7tx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color(0, 0.137255, 0.137255, 1)
+color = Color(0, 0.0392157, 0.0392157, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -71,3 +71,5 @@ remote_path = NodePath("../../Camera2D")
 [node name="PlayerTorch" parent="." instance=ExtResource("6_in2lf")]
 
 [node name="LevelExit" parent="." instance=ExtResource("7_j8ju6")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]

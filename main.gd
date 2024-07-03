@@ -2,7 +2,8 @@ class_name Main extends Control
 
 @export var first_level: PackedScene
 
-var credits_scene: PackedScene = load("res://credits.tscn")
+var credits_scene: PackedScene = load("res://core/credits/credits.tscn")
+var main_menu_music: AudioStream = load("res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/1 Adventure Begins/slow.Adventure Begins (Loopable).wav")
 
 @onready var torch: Torch = $Torch
 @onready var title_label: Label = $%TitleLabel
@@ -18,6 +19,7 @@ var OFFSET: Vector2 = Vector2(0, 8)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.play_music(main_menu_music)
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	play_button.pressed.connect(_on_play_button_pressed)
 	level_button.pressed.connect(_on_level_select_pressed)

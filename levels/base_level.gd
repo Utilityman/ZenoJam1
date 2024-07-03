@@ -1,5 +1,7 @@
 class_name BaseLevel extends Node2D
 
+var level_music: AudioStream = load("res://assets/music/io/itch/francescofabrizio/8-Bit RPG Adventure Music Pack I/4 First Boss/slow.First Boss (Loopable w end).wav")
+
 var fire_scene: PackedScene = preload("res://levels/components/fire.tscn")
 var burning_tiles: Array[Vector2i] = []
 
@@ -25,6 +27,9 @@ var main_menu_scene: PackedScene = load("res://main.tscn")
 var finished_level: bool = false
 
 func _ready() -> void:
+	if not Global.music_player.playing:
+		Global.play_music(level_music)
+
 	if modulate_background: canvas_modulate.visible = true
 	level_complete_sfx.finished.connect(_on_level_complete_sfx_finished)
 	player.reached_goal.connect(_on_player_reached_goal)
