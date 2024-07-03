@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciua68avdewot"]
+[gd_scene load_steps=18 format=3 uid="uid://ciua68avdewot"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_clxcs"]
 [ext_resource type="PackedScene" uid="uid://dohhqfk7hhrlg" path="res://levels/01_intro_level.tscn" id="3_8vxse"]
@@ -8,10 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="5_tjywn"]
 [ext_resource type="PackedScene" uid="uid://b3c8o6ofirqeu" path="res://levels/03_duck_and_dodge.tscn" id="6_ls0s6"]
 [ext_resource type="PackedScene" uid="uid://dubbghn8j4i8m" path="res://levels/04_intro_to_bouncers.tscn" id="7_igg1t"]
-[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/05_intro_to_spikes.tscn" id="8_8u2sj"]
-[ext_resource type="PackedScene" uid="uid://54n1682n1ebo" path="res://levels/06_life_so_far.tscn" id="9_30wbv"]
-[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/bonus_01_gauntlet.tscn" id="10_uj6tn"]
+[ext_resource type="PackedScene" uid="uid://54n1682n1ebo" path="res://levels/05_life_so_far.tscn" id="9_8fono"]
+[ext_resource type="PackedScene" uid="uid://ox7oa5sld1xl" path="res://levels/06_bat_level.tscn" id="9_l2gjk"]
+[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/07_intro_to_spikes.tscn" id="10_v3bg1"]
 [ext_resource type="PackedScene" uid="uid://cv460g6wqxb4m" path="res://levels/08_all_of_this.tscn" id="10_xjeei"]
+[ext_resource type="PackedScene" uid="uid://nfveef21tjfm" path="res://levels/09_arrows_and_saws_and_spikes_oh_my.tscn" id="12_21hf7"]
+[ext_resource type="PackedScene" uid="uid://diycb2cjkjqai" path="res://levels/10_treasure_hoard.tscn" id="13_w4ibw"]
+[ext_resource type="PackedScene" uid="uid://c6jo7htvrqx2i" path="res://levels/wip/bonus_01_gauntlet.tscn" id="14_nxf5h"]
+[ext_resource type="PackedScene" uid="uid://don0sjpcjwpnp" path="res://levels/wip/big_chungas.tscn" id="15_1sblh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ng6"]
 
@@ -143,7 +147,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "5"
 script = ExtResource("4_5ynka")
-level_to_load = ExtResource("8_8u2sj")
+level_to_load = ExtResource("9_8fono")
 
 [node name="Level6To10" type="HBoxContainer" parent="Panel/MainAnchor/LevelMenu"]
 layout_mode = 2
@@ -154,7 +158,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "6"
 script = ExtResource("4_5ynka")
-level_to_load = ExtResource("9_30wbv")
+level_to_load = ExtResource("9_l2gjk")
 
 [node name="Level7" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -163,6 +167,7 @@ theme_override_font_sizes/font_size = 14
 text = "7
 "
 script = ExtResource("4_5ynka")
+level_to_load = ExtResource("10_v3bg1")
 
 [node name="Level8" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -178,7 +183,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "9"
 script = ExtResource("4_5ynka")
-level_to_load = ExtResource("10_uj6tn")
+level_to_load = ExtResource("12_21hf7")
 
 [node name="Level10" type="Button" parent="Panel/MainAnchor/LevelMenu/Level6To10"]
 custom_minimum_size = Vector2(18, 0)
@@ -186,6 +191,24 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "10"
 script = ExtResource("4_5ynka")
+level_to_load = ExtResource("13_w4ibw")
+
+[node name="Gauntlet" type="Button" parent="Panel/MainAnchor/LevelMenu"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Gauntlet"
+script = ExtResource("4_5ynka")
+level_to_load = ExtResource("14_nxf5h")
+
+[node name="Chungus" type="Button" parent="Panel/MainAnchor/LevelMenu"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Chungus
+"
+script = ExtResource("4_5ynka")
+level_to_load = ExtResource("15_1sblh")
 
 [node name="LevelReturn" type="Button" parent="Panel/MainAnchor/LevelMenu"]
 unique_name_in_owner = true

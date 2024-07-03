@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dubbghn8j4i8m"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_n8ddc"]
-[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/05_intro_to_spikes.tscn" id="2_cjumt"]
+[ext_resource type="PackedScene" uid="uid://54n1682n1ebo" path="res://levels/05_life_so_far.tscn" id="2_f5jxk"]
 [ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/saw_retractor.tscn" id="3_84bc8"]
 
 [node name="IntroToBouncers" instance=ExtResource("1_n8ddc")]
-next_level = ExtResource("2_cjumt")
+next_level = ExtResource("2_f5jxk")
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(-8, -59)

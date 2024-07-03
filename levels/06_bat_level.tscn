@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ox7oa5sld1xl"]
+[gd_scene load_steps=11 format=3 uid="uid://ox7oa5sld1xl"]
 
-[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_1nqtf"]
-[ext_resource type="PackedScene" uid="uid://cocavfoacmtj5" path="res://hazards/bat_hazard.tscn" id="2_n28m3"]
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_k8l4t"]
+[ext_resource type="PackedScene" uid="uid://c711j6u8fxh0h" path="res://levels/07_intro_to_spikes.tscn" id="2_q7uah"]
+[ext_resource type="PackedScene" uid="uid://cocavfoacmtj5" path="res://hazards/bat_hazard.tscn" id="3_natgq"]
 
 [sub_resource type="Curve2D" id="Curve2D_syn85"]
 _data = {
@@ -45,7 +46,8 @@ _data = {
 }
 point_count = 3
 
-[node name="BaseLevel" instance=ExtResource("1_1nqtf")]
+[node name="BatLevel" instance=ExtResource("1_k8l4t")]
+next_level = ExtResource("2_q7uah")
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(-120, -75)
@@ -61,14 +63,14 @@ position = Vector2(-121, -59)
 position = Vector2(-121, -59)
 torch = NodePath("../PlayerTorch")
 
-[node name="ExampleBat" parent="." index="9" instance=ExtResource("2_n28m3")]
+[node name="ExampleBat" parent="." index="9" instance=ExtResource("3_natgq")]
 position = Vector2(-181, -52)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_syn85")
 speed = 100.0
 interval = 3.0
 
-[node name="BatHazard" parent="." index="10" instance=ExtResource("2_n28m3")]
+[node name="BatHazard" parent="." index="10" instance=ExtResource("3_natgq")]
 position = Vector2(-19, -111)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_l87f3")
@@ -76,7 +78,7 @@ speed = 100.0
 initial_delay = 1.0
 interval = 1.5
 
-[node name="BatHazard2" parent="." index="11" instance=ExtResource("2_n28m3")]
+[node name="BatHazard2" parent="." index="11" instance=ExtResource("3_natgq")]
 position = Vector2(73, 15)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_qpty7")
@@ -84,7 +86,7 @@ speed = 100.0
 initial_delay = 2.5
 interval = 1.5
 
-[node name="BatHazard4" parent="." index="12" instance=ExtResource("2_n28m3")]
+[node name="BatHazard4" parent="." index="12" instance=ExtResource("3_natgq")]
 position = Vector2(127, -238)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_noj0j")
@@ -92,7 +94,7 @@ speed = 100.0
 initial_delay = 1.0
 interval = 1.5
 
-[node name="BatHazard5" parent="." index="13" instance=ExtResource("2_n28m3")]
+[node name="BatHazard5" parent="." index="13" instance=ExtResource("3_natgq")]
 position = Vector2(-60, -143)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_gwn0w")
@@ -100,7 +102,7 @@ speed = 100.0
 initial_delay = 2.5
 interval = 1.5
 
-[node name="BatHazard3" parent="." index="14" instance=ExtResource("2_n28m3")]
+[node name="BatHazard3" parent="." index="14" instance=ExtResource("3_natgq")]
 position = Vector2(143, -112)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_68wnt")
@@ -108,7 +110,7 @@ speed = 100.0
 initial_delay = 2.5
 interval = 1.5
 
-[node name="BatHazard6" parent="." index="15" instance=ExtResource("2_n28m3")]
+[node name="BatHazard6" parent="." index="15" instance=ExtResource("3_natgq")]
 position = Vector2(188, 15)
 scale = Vector2(1.00601, 1.00252)
 curve = SubResource("Curve2D_d86r0")

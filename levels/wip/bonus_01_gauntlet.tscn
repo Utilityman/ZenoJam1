@@ -29,6 +29,7 @@ visual_scene = ExtResource("6_giiqe")
 visual_scene_direction = Vector2(0, 1)
 
 [node name="BaseLevel" instance=ExtResource("1_uvkrr")]
+return_to_main_menu = true
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(0, -43)

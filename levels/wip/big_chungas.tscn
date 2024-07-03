@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://don0sjpcjwpnp"]
+[gd_scene load_steps=10 format=3 uid="uid://don0sjpcjwpnp"]
 
 [ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_bkl4x"]
 [ext_resource type="PackedScene" uid="uid://va8aj5ivevlw" path="res://hazards/saw_path_hazard.tscn" id="2_5pe04"]
-[ext_resource type="PackedScene" uid="uid://diycb2cjkjqai" path="res://levels/10_treasure_hoard.tscn" id="2_815cl"]
 [ext_resource type="PackedScene" uid="uid://bnf7jei2rpf1t" path="res://hazards/pressure_plate.tscn" id="3_hyh06"]
 [ext_resource type="PackedScene" uid="uid://b4jkcs1tajq2a" path="res://hazards/spike_floor_trap.tscn" id="4_uyqmq"]
 [ext_resource type="PackedScene" uid="uid://cocavfoacmtj5" path="res://hazards/bat_hazard.tscn" id="5_q31o8"]
@@ -27,7 +26,7 @@ _data = {
 point_count = 5
 
 [node name="big_chungas" instance=ExtResource("1_bkl4x")]
-next_level = ExtResource("2_815cl")
+return_to_main_menu = true
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(312, -235)

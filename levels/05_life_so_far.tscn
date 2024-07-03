@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://54n1682n1ebo"]
+[gd_scene load_steps=7 format=3 uid="uid://54n1682n1ebo"]
 
-[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_shsru"]
-[ext_resource type="PackedScene" uid="uid://va8aj5ivevlw" path="res://hazards/saw_path_hazard.tscn" id="2_sv508"]
-[ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/saw_retractor.tscn" id="3_qf6kg"]
+[ext_resource type="PackedScene" uid="uid://ccopmiiqe7hlf" path="res://levels/base_level.tscn" id="1_dyl14"]
+[ext_resource type="PackedScene" uid="uid://ox7oa5sld1xl" path="res://levels/06_bat_level.tscn" id="2_2yi4o"]
+[ext_resource type="PackedScene" uid="uid://va8aj5ivevlw" path="res://hazards/saw_path_hazard.tscn" id="3_7t85l"]
+[ext_resource type="PackedScene" uid="uid://dt23cawd4e4g8" path="res://hazards/saw_retractor.tscn" id="4_kw00g"]
 
 [sub_resource type="Curve2D" id="Curve2D_uofhx"]
 _data = {
@@ -16,7 +17,8 @@ _data = {
 }
 point_count = 2
 
-[node name="LifeSoFar" instance=ExtResource("1_shsru")]
+[node name="LifeSoFar" instance=ExtResource("1_dyl14")]
+next_level = ExtResource("2_2yi4o")
 
 [node name="LevelEntrance" parent="." index="3"]
 position = Vector2(0, -59)
@@ -40,21 +42,21 @@ position = Vector2(-627, -54)
 [node name="LevelExit" parent="." index="10"]
 position = Vector2(454, 97)
 
-[node name="SwingingHazard" parent="." index="11" instance=ExtResource("2_sv508")]
+[node name="SwingingHazard" parent="." index="11" instance=ExtResource("3_7t85l")]
 position = Vector2(65, -71)
 curve = SubResource("Curve2D_uofhx")
 swing_back = false
 initial_delay = 1.0
 interval = 1.0
 
-[node name="SwingingHazard4" parent="." index="12" instance=ExtResource("2_sv508")]
+[node name="SwingingHazard4" parent="." index="12" instance=ExtResource("3_7t85l")]
 position = Vector2(192, -76)
 curve = SubResource("Curve2D_uofhx")
 swing_back = false
 initial_delay = 1.0
 interval = 1.0
 
-[node name="SwingingHazard2" parent="." index="13" instance=ExtResource("2_sv508")]
+[node name="SwingingHazard2" parent="." index="13" instance=ExtResource("3_7t85l")]
 position = Vector2(128, 49)
 rotation = 3.14159
 curve = SubResource("Curve2D_uofhx")
@@ -62,7 +64,7 @@ swing_back = false
 initial_delay = 1.0
 interval = 1.0
 
-[node name="SwingingHazard5" parent="." index="14" instance=ExtResource("2_sv508")]
+[node name="SwingingHazard5" parent="." index="14" instance=ExtResource("3_7t85l")]
 position = Vector2(240, 48)
 rotation = 3.14159
 curve = SubResource("Curve2D_uofhx")
@@ -70,7 +72,7 @@ swing_back = false
 initial_delay = 1.0
 interval = 1.0
 
-[node name="SawRetractor" parent="." index="15" instance=ExtResource("3_qf6kg")]
+[node name="SawRetractor" parent="." index="15" instance=ExtResource("4_kw00g")]
 position = Vector2(320, 176)
 scale = Vector2(2, 2)
 destination = Vector2(0, -128)
@@ -78,7 +80,7 @@ time_to_retract = 6.0
 initial_delay = 0.5
 interval = 0.5
 
-[node name="SwingingHazard3" parent="." index="16" instance=ExtResource("2_sv508")]
+[node name="SwingingHazard3" parent="." index="16" instance=ExtResource("3_7t85l")]
 position = Vector2(282, 54)
 rotation = -1.5708
 curve = SubResource("Curve2D_b6ddw")
