@@ -28,4 +28,4 @@
 
 ### Demo
 
-![Game Dmeo](https://github.com/caremackin/animal-webapp-project/blob/main/animal_webapp/gif/undefined-high.gif)
+![Game Dmeo](assets/burnt-out-demo.gif)
