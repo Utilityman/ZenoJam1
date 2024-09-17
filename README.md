@@ -1,22 +1,8 @@
 # Burnt Out
 
-## Web Export
+### Play Game on Itch IO
 
-1. Project > Export > Web Export
+[https://itch.io/dashboard](https://utilityman.itch.io/burnt-out)
 
-2. Navigate to ~/exports/web/
+#### Demo
 
-3. Compress Generated Files 
-
-### Itch IO
-
-4. https://itch.io/dashboard
-
-#### New Project
-
-5. Create New Project
-
-6. Fill Out Information
-- Kind of Project: HTML
-- Uploads: Upload the ZIP from step #3
-- Viewport Dimensions: Set to match the same as the Project Settings > Window > Viewport Width & Viewport Height
