@@ -333,10 +333,10 @@ initial_delay = 2.0
 interval = 2.0
 
 [node name="Camera2D" parent="." index="18"]
-position = Vector2(-3, -25)
+position = Vector2(342, 153)
 
 [node name="Player" parent="." index="19" node_paths=PackedStringArray("torch")]
-position = Vector2(-3, -25)
+position = Vector2(342, 153)
 torch = NodePath("../PlayerTorch")
 
 [node name="PlayerTorch" parent="." index="20"]

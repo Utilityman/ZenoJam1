@@ -20,3 +20,7 @@
 - Kind of Project: HTML
 - Uploads: Upload the ZIP from step #3
 - Viewport Dimensions: Set to match the same as the Project Settings > Window > Viewport Width & Viewport Height
+
+### Demo
+
+![Game Dmeo](assets/burnt-out-demo.gif)

@@ -37,3 +37,7 @@ func _start_music (music_stream: AudioStream):
 
 func stop_music ():
 	music_player.stop()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("DEV_MODE_TOGGLE"):
+		get_tree().paused = !get_tree().paused

@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://0v1ej5db14s8"]
+
+[ext_resource type="Theme" uid="uid://pxkotyr76blb" path="res://default_theme.tres" id="1_o128u"]
+[ext_resource type="Shader" path="res://assets/shaders/unshaded.gdshader" id="2_gqdud"]
+[ext_resource type="Texture2D" uid="uid://bk5sb40hg5xhk" path="res://assets/character/goblin.png" id="2_tt3da"]
+[ext_resource type="PackedScene" uid="uid://ckqer2mnibtnu" path="res://entity/torch.tscn" id="3_gbryl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuder"]
+bg_color = Color(0.103744, 0.103744, 0.103743, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5qto"]
+shader = ExtResource("2_gqdud")
+
+[node name="Screenshot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o128u")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vuder")
+
+[node name="Label" type="Label" parent="Panel"]
+material = SubResource("ShaderMaterial_q5qto")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -94.0
+offset_right = 169.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 64
+text = "Burnt Out"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(228, 181)
+scale = Vector2(8, 8)
+texture = ExtResource("2_tt3da")
+hframes = 8
+vframes = 8
+frame = 57
+
+[node name="Torch" parent="." instance=ExtResource("3_gbryl")]
+position = Vector2(278, 199)
+rotation = 0.523599
+scale = Vector2(5, 5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.103744, 0.103744, 0.103744, 1)

@@ -29,6 +29,7 @@ var finished_level: bool = false
 func _ready() -> void:
 	if not Global.music_player.playing:
 		Global.play_music(level_music)
+	# TODO: if music isn't playing, start playing music
 
 	if modulate_background: canvas_modulate.visible = true
 	level_complete_sfx.finished.connect(_on_level_complete_sfx_finished)
