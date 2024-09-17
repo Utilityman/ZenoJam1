@@ -1,5 +1,10 @@
 # Burnt Out
 
+### Play Game on Itch IO
+
+[https://itch.io/dashboard](https://utilityman.itch.io/burnt-out)
+
+
 ## Web Export
 
 1. Project > Export > Web Export
@@ -23,4 +28,4 @@
 
 ### Demo
 
-![Game Dmeo](assets/burnt-out-demo.gif)
+![Game Dmeo](https://github.com/caremackin/animal-webapp-project/blob/main/animal_webapp/gif/undefined-high.gif)
